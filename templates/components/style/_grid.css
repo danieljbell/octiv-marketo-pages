@@ -1,0 +1,35 @@
+/*
+    ==============================
+    GRID
+    ==============================
+    */
+    .two-third,
+    .half,
+    .third,
+    .fourth {
+      display: flex;
+    	flex-wrap: wrap;
+    }
+    .two-third > div,
+    .half > div,
+    .third > div,
+    .fourth > div {
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    @media screen and (min-width: 767px) {
+      .two-third > div,
+      .half > div,
+      .third > div,
+      .fourth > div {
+        width: 100%;
+        flex: 1;
+        margin-right: 2rem;
+      }
+      .half > div:nth-child(2n),
+      .third > div:nth-child(3n),
+      .fourth > div:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
