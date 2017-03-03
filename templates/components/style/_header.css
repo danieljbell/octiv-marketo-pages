@@ -8,4 +8,29 @@
     }
     header .half div {
       margin-bottom: 0;
+      text-align: center;
+    }
+    header .half div:last-child {
+      margin-bottom: 2rem;
+    }
+    .site-logo {
+      background-image: url(./img/Octiv-Logo-Color.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: 45px;
+      margin: 2rem 0 1rem;
+    }
+    @media screen and (min-width: 767px) {
+      header .half div {
+        text-align: initial;
+      }
+      header .half div:last-child {
+        text-align: right;
+        margin-bottom: 0;
+      }
+      .site-logo {
+        background-position: initial;
+        margin: 2rem 0 2rem;
+      }
     }

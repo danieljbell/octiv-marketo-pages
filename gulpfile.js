@@ -12,7 +12,7 @@ var runSequence = require('run-sequence');
 
 // Default Task
 gulp.task('default', function(cb) {
-  runSequence('clean', ['fileinclude', 'browser-sync', 'watch'], cb);
+  runSequence('clean', ['fileinclude', 'images', 'browser-sync', 'watch'], cb);
 });
 
 // Tasks
@@ -53,7 +53,7 @@ gulp.task('fileinclude', function() {
 
 // Compress images
 gulp.task('images', function() {
-  gulp.src('templates/img/*.{gif,jpg,png}')
+  gulp.src('templates/img/*.{gif,jpg,png,svg}')
 
   // move images to the dist folder
   .pipe(gulp.dest('dist/img/'))

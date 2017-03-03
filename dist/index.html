@@ -25,7 +25,7 @@
     }
     html, body {
       font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.4;
       font-weight: 300;
       color: #000;
@@ -40,8 +40,10 @@
     section {
       padding: 3rem 0;
     }
-
     @media screen and (min-width: 767px) {
+      html, body {
+        font-size: 18px;
+      }
       .site-width {
         width: calc(100% - 4rem);
       }
@@ -53,8 +55,79 @@
     TYPOGRAPHY
     =========================
     */
-    p {
+    h1, h2, h3, h4, h5, h6, p, ul {
       margin-bottom: 1rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 0.8;
+    }
+    h1 {
+      font-size: 1.75em;
+    }
+    h2 {
+      font-size: 1.6em;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-size: 1.45em;
+      color: #ed4c06;
+    }
+    h4 {
+      font-size: 1.3em;
+    }
+    h5 {
+      font-size: 1.15em;
+    }
+    h6 {
+      font-size: 1em;
+    }
+    ul li {
+      margin-left: 1rem;
+    }
+    blockquote {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#fff,#f0f0f0);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 1rem;
+      font-style: italic;
+      font-size: 1.15em;
+      line-height: 1.2;
+    }
+    blockquote p {
+      margin-top: 1rem;
+      /*margin-bottom: 0;*/
+      font-style: initial;
+      font-size: 0.85em;
+      opacity: 0.65;
+    }
+    blockquote strong, blockquote b,
+    blockquote em, blockquote i {
+      display: block;
+    }
+    blockquote strong, blockquote b {
+      font-size: 1.25em;
+    }
+    @media screen and (min-width: 767px) {
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.8em;
+      }
+      h3 {
+        font-size: 1.6em;
+      }
+      h4 {
+        font-size: 1.4em;
+      }
+      h5 {
+        font-size: 1.2em;
+      }
+      h6 {
+        font-size: 1em;
+      }
     }
 
     /*
@@ -65,31 +138,56 @@
     .two-third,
     .half,
     .third,
-    .fourth {
+    .fourth,
+    .two-third-reversed,
+    .half-stack {
       display: flex;
     	flex-wrap: wrap;
+      align-items: center;
+    }
+    .half-stack {
+      flex-direction: row-reverse;
     }
     .two-third > div,
     .half > div,
     .third > div,
-    .fourth > div {
-      margin-bottom: 2rem;
+    .fourth > div,
+    .two-third-reversed > div,
+    .half-stack > div {
+      margin-bottom: 1rem;
       width: 100%;
     }
-
     @media screen and (min-width: 767px) {
       .two-third > div,
       .half > div,
       .third > div,
-      .fourth > div {
+      .fourth > div,
+      .two-third-reversed > div,
+      .half-stack > div {
         width: 100%;
         flex: 1;
+        margin-bottom: 2rem;
         margin-right: 2rem;
       }
+      .two-third > div:nth-child(2n-1) {
+        min-width: calc(66.1667% - (1rem/3));
+      }
+      .two-third-reversed > div:nth-child(2n) {
+        min-width: calc(66.1667% - (1rem/3));
+      }
+      .half-stack > div {
+        margin-left: 2rem;
+        margin-right: 0;
+      }
+      .two-third > div:nth-child(2n),
       .half > div:nth-child(2n),
       .third > div:nth-child(3n),
-      .fourth > div:nth-child(4n) {
+      .fourth > div:nth-child(4n),
+      .two-third-reversed > div:nth-child(2n) {
         margin-right: 0;
+      }
+      .half-stack > div:nth-child(2n) {
+        margin-left: 0;
       }
     }
 
@@ -146,25 +244,83 @@
     }
     header .half div {
       margin-bottom: 0;
+      text-align: center;
+    }
+    header .half div:last-child {
+      margin-bottom: 2rem;
+    }
+    .site-logo {
+      background-image: url(./img/Octiv-Logo-Color.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: 45px;
+      margin: 2rem 0 1rem;
+    }
+    @media screen and (min-width: 767px) {
+      header .half div {
+        text-align: initial;
+      }
+      header .half div:last-child {
+        text-align: right;
+        margin-bottom: 0;
+      }
+      .site-logo {
+        background-position: initial;
+        margin: 2rem 0 2rem;
+      }
     }
 
 
-    ul li {
-      display: inline-block;
-      margin-right: 1rem;
+    pre {
+      display: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#fff, #f0f0f0);
+      padding: 2rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .site-width > h2 {
+      /*background-color: #ed4c06;*/
+      /*color: #fff;*/
+      /*border-radius: 5px;*/
+
+    }
+    .centered {
+      text-align: center;
+      padding: 0 0 1rem;
+      margin: 0 0 1rem;
+      border-bottom: 1px solid #ccc;
+    }
+    .centered h2,
+    .centered p {
+      margin-bottom: 0;
+    }
+    .example-is-open + pre {
+      display: block;
     }
   </style>
 </head>
 <body>
   <main>
+    <!--
+    =========================
+    STANDARD HEADER
+    =========================
+    -->
     <header>
       <div class="site-width">
         <div class="half">
-          <div>logo</div>
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
           <div>number</div>
         </div>
       </div>
     </header>
+
     <section>
       <div class="site-width">
         <ul>
@@ -176,23 +332,129 @@
     </section>
     <section>
       <div class="site-width">
+        <div class="centered">
+          <h2>The Grid</h2>
+          <p>For code examples, click the element you want to see.</p>
+        </div>
+        <h3>Standard Grid</h3>
+        <div class="has-code-example">
+          <div class="half">
+            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="half"&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="third">
+            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Three</div>
+            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Three</div>
+            <div style="background-color: #b949f5; color: #fff; text-align: center; padding: 1rem;">Three of Three</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="third"&gt;
+  &lt;div&gt;One of Three&lt;/div&gt;
+  &lt;div&gt;Two of Three&lt;/div&gt;
+  &lt;div&gt;Three of Three&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="fourth">
+            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Four</div>
+            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Four</div>
+            <div style="background-color: #b949f5; color: #fff; text-align: center; padding: 1rem;">Three of Four</div>
+            <div style="background-color: #fac500; color: #fff; text-align: center; padding: 1rem;">Four of Four</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="fourth"&gt;
+  &lt;div&gt;One of Four&lt;/div&gt;
+  &lt;div&gt;Two of Four&lt;/div&gt;
+  &lt;div&gt;Three of Four&lt;/div&gt;
+  &lt;div&gt;Four of Four&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="two-third">
+            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="two-third"&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="two-third-reversed">
+            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="two-third-reversed"&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <h3>Stack Order Grid</h3>
+        <div class="has-code-example">
+          <div class="half-stack">
+            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="half-stack"&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+    <section>
+      <div class="site-width">
+        <div class="centered">
+          <h2>Typography</h2>
+        </div>
+        <h1>Heading One</h1>
+        <div>
+          <h2>Heading Two</h2>
+        </div>
+        <h3>Heading Three</h3>
+        <h4>Heading Four</h4>
+        <h5>Heading Five</h5>
+        <h6>Heading Six</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam distinctio architecto neque ratione at, aliquam, omnis porro voluptatibus quod inventore corrupti. Quidem nobis non aliquam.</p>
+        <ul>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, labore!</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, quo.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, harum.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, possimus.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, voluptatum!</li>
+        </ul>
+        <blockquote>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit distinctio ex quidem nemo veritatis possimus. Atque temporibus adipisci ex non voluptatem voluptates, sunt, obcaecati. Dicta.
+          <p><div style="width: 100px; height: 100px; border-radius: 50%; background-color: blue; float: left; margin-right: 1rem;"></div><strong>First Last</strong> <em>Title</em> Company</p>
+        </blockquote>
+      </div>
+    </section>
+    <section>
+      <div class="site-width">
         <div class="half">
-          <div style="background-color: rgba(0,0,0,0.1);">One of Two</div>
-          <div style="background-color: rgba(0,0,0,0.1);">Two of Two</div>
-        </div>
-        <div class="third">
-          <div style="background-color: rgba(0,0,0,0.1);">One of Three</div>
-          <div style="background-color: rgba(0,0,0,0.1);">Two of Three</div>
-          <div style="background-color: rgba(0,0,0,0.1);">Three of Three</div>
-        </div>
-        <div class="fourth">
-          <div style="background-color: rgba(0,0,0,0.1);">One of Four</div>
-          <div style="background-color: rgba(0,0,0,0.1);">Two of Four</div>
-          <div style="background-color: rgba(0,0,0,0.1);">Three of Four</div>
-          <div style="background-color: rgba(0,0,0,0.1);">Four of Four</div>
+          <div>something</div>
+          <div>
+            <blockquote>
+              Something
+            </blockquote>
+          </div>
         </div>
       </div>
     </section>
   </main>
+  <script>
+    (function() {
+      var codeExamples = document.querySelectorAll('.has-code-example');
+      for (var i = 0; i < codeExamples.length; i++) {
+        codeExamples[i].addEventListener('click', function() {
+          this.classList.toggle('example-is-open');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

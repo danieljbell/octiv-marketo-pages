@@ -25,7 +25,7 @@
     }
     html, body {
       font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.4;
       font-weight: 300;
       color: #000;
@@ -40,8 +40,10 @@
     section {
       padding: 3rem 0;
     }
-
     @media screen and (min-width: 767px) {
+      html, body {
+        font-size: 18px;
+      }
       .site-width {
         width: calc(100% - 4rem);
       }
@@ -53,8 +55,79 @@
     TYPOGRAPHY
     =========================
     */
-    p {
+    h1, h2, h3, h4, h5, h6, p, ul {
       margin-bottom: 1rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 0.8;
+    }
+    h1 {
+      font-size: 1.75em;
+    }
+    h2 {
+      font-size: 1.6em;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-size: 1.45em;
+      color: #ed4c06;
+    }
+    h4 {
+      font-size: 1.3em;
+    }
+    h5 {
+      font-size: 1.15em;
+    }
+    h6 {
+      font-size: 1em;
+    }
+    ul li {
+      margin-left: 1rem;
+    }
+    blockquote {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#fff,#f0f0f0);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 1rem;
+      font-style: italic;
+      font-size: 1.15em;
+      line-height: 1.2;
+    }
+    blockquote p {
+      margin-top: 1rem;
+      /*margin-bottom: 0;*/
+      font-style: initial;
+      font-size: 0.85em;
+      opacity: 0.65;
+    }
+    blockquote strong, blockquote b,
+    blockquote em, blockquote i {
+      display: block;
+    }
+    blockquote strong, blockquote b {
+      font-size: 1.25em;
+    }
+    @media screen and (min-width: 767px) {
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.8em;
+      }
+      h3 {
+        font-size: 1.6em;
+      }
+      h4 {
+        font-size: 1.4em;
+      }
+      h5 {
+        font-size: 1.2em;
+      }
+      h6 {
+        font-size: 1em;
+      }
     }
 
     /*
@@ -65,31 +138,56 @@
     .two-third,
     .half,
     .third,
-    .fourth {
+    .fourth,
+    .two-third-reversed,
+    .half-stack {
       display: flex;
     	flex-wrap: wrap;
+      align-items: center;
+    }
+    .half-stack {
+      flex-direction: row-reverse;
     }
     .two-third > div,
     .half > div,
     .third > div,
-    .fourth > div {
-      margin-bottom: 2rem;
+    .fourth > div,
+    .two-third-reversed > div,
+    .half-stack > div {
+      margin-bottom: 1rem;
       width: 100%;
     }
-
     @media screen and (min-width: 767px) {
       .two-third > div,
       .half > div,
       .third > div,
-      .fourth > div {
+      .fourth > div,
+      .two-third-reversed > div,
+      .half-stack > div {
         width: 100%;
         flex: 1;
+        margin-bottom: 2rem;
         margin-right: 2rem;
       }
+      .two-third > div:nth-child(2n-1) {
+        min-width: calc(66.1667% - (1rem/3));
+      }
+      .two-third-reversed > div:nth-child(2n) {
+        min-width: calc(66.1667% - (1rem/3));
+      }
+      .half-stack > div {
+        margin-left: 2rem;
+        margin-right: 0;
+      }
+      .two-third > div:nth-child(2n),
       .half > div:nth-child(2n),
       .third > div:nth-child(3n),
-      .fourth > div:nth-child(4n) {
+      .fourth > div:nth-child(4n),
+      .two-third-reversed > div:nth-child(2n) {
         margin-right: 0;
+      }
+      .half-stack > div:nth-child(2n) {
+        margin-left: 0;
       }
     }
 
@@ -136,10 +234,63 @@
       color: #fff;
     }
 
+    /*
+    ==============================
+    HEADER
+    ==============================
+    */
+    header {
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    }
+    header .half div {
+      margin-bottom: 0;
+      text-align: center;
+    }
+    header .half div:last-child {
+      margin-bottom: 2rem;
+    }
+    .site-logo {
+      background-image: url(./img/Octiv-Logo-Color.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: 45px;
+      margin: 2rem 0 1rem;
+    }
+    @media screen and (min-width: 767px) {
+      header .half div {
+        text-align: initial;
+      }
+      header .half div:last-child {
+        text-align: right;
+        margin-bottom: 0;
+      }
+      .site-logo {
+        background-position: initial;
+        margin: 2rem 0 2rem;
+      }
+    }
+
   </style>
 </head>
 <body>
   <main>
+    <!--
+    =========================
+    STANDARD HEADER
+    =========================
+    -->
+    <header>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>number</div>
+        </div>
+      </div>
+    </header>
+
     <section>
       <div class="site-width">
         <h1>Blank Template</h1>
