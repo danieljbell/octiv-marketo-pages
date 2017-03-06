@@ -140,6 +140,7 @@
     .third,
     .fourth,
     .two-third-reversed,
+    .two-third-stack,
     .half-stack {
       display: flex;
     	flex-wrap: wrap;
@@ -153,6 +154,7 @@
     .third > div,
     .fourth > div,
     .two-third-reversed > div,
+    .two-third-stack > div,
     .half-stack > div {
       margin-bottom: 1rem;
       width: 100%;
@@ -163,6 +165,7 @@
       .third > div,
       .fourth > div,
       .two-third-reversed > div,
+      .two-third-stack > div,
       .half-stack > div {
         width: 100%;
         flex: 1;
@@ -174,6 +177,11 @@
       }
       .two-third-reversed > div:nth-child(2n) {
         min-width: calc(66.1667% - (1rem/3));
+      }
+      .two-third-stack > div:nth-child(2n-1) {
+        order: 2;
+        min-width: calc(66.1667% - (1rem/3));
+        margin-right: 0;
       }
       .half-stack > div {
         margin-left: 2rem;

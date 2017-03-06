@@ -10,6 +10,7 @@
   <style>
     @@include('style/_base.css')
     @@include('style/_grid.css')
+    @@include('style/_forms.css')
     @@include('style/_buttons.css')
     @@include('style/_header.css')
 
@@ -22,6 +23,7 @@
       padding: 2rem;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
+      transition: all 300ms ease-out;
     }
     .site-width > h2 {
       /*background-color: #ed4c06;*/
@@ -65,8 +67,8 @@
         <h3>Standard Grid</h3>
         <div class="has-code-example">
           <div class="half">
-            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
-            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
           </div>
         </div>
 <pre><code>&lt;div class="half"&gt;
@@ -75,9 +77,9 @@
 &lt;/div&gt;</code></pre>
         <div class="has-code-example">
           <div class="third">
-            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Three</div>
-            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Three</div>
-            <div style="background-color: #b949f5; color: #fff; text-align: center; padding: 1rem;">Three of Three</div>
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Three</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Three</div>
+            <div style="border-radius: 5px; background-color: #b949f5; color: #fff; text-align: center; padding: 1rem;">Three of Three</div>
           </div>
         </div>
 <pre><code>&lt;div class="third"&gt;
@@ -87,10 +89,10 @@
 &lt;/div&gt;</code></pre>
         <div class="has-code-example">
           <div class="fourth">
-            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Four</div>
-            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Four</div>
-            <div style="background-color: #b949f5; color: #fff; text-align: center; padding: 1rem;">Three of Four</div>
-            <div style="background-color: #fac500; color: #fff; text-align: center; padding: 1rem;">Four of Four</div>
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Four</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Four</div>
+            <div style="border-radius: 5px; background-color: #b949f5; color: #fff; text-align: center; padding: 1rem;">Three of Four</div>
+            <div style="border-radius: 5px; background-color: #fac500; color: #fff; text-align: center; padding: 1rem;">Four of Four</div>
           </div>
         </div>
 <pre><code>&lt;div class="fourth"&gt;
@@ -101,8 +103,8 @@
 &lt;/div&gt;</code></pre>
         <div class="has-code-example">
           <div class="two-third">
-            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
-            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
           </div>
         </div>
 <pre><code>&lt;div class="two-third"&gt;
@@ -111,8 +113,8 @@
 &lt;/div&gt;</code></pre>
         <div class="has-code-example">
           <div class="two-third-reversed">
-            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
-            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
           </div>
         </div>
 <pre><code>&lt;div class="two-third-reversed"&gt;
@@ -122,13 +124,23 @@
         <h3>Stack Order Grid</h3>
         <div class="has-code-example">
           <div class="half-stack">
-            <div style="background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
-            <div style="background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
           </div>
         </div>
 <pre><code>&lt;div class="half-stack"&gt;
   &lt;div&gt;One of Two&lt;/div&gt;
   &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="two-third-stack">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="two-third-stack"&gt;
+&lt;div&gt;One of Two&lt;/div&gt;
+&lt;div&gt;Two of Two&lt;/div&gt;
 &lt;/div&gt;</code></pre>
       </div>
     </section>
@@ -161,14 +173,10 @@
     </section>
     <section>
       <div class="site-width">
-        <div class="half">
-          <div>something</div>
-          <div>
-            <blockquote>
-              Something
-            </blockquote>
-          </div>
-        </div>
+        <form action="">
+          <label for="name">First Name</label>
+          <input type="text" id="name">
+        </form>
       </div>
     </section>
   </main>
