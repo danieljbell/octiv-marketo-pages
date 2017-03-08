@@ -1,5 +1,40 @@
-input[type="text"] {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 0.25rem 0.5rem;
-}
+/*
+    =========================
+    FORMS
+    =========================
+    */
+    input[type="text"],
+    input[type="submit"] {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    }
+    label {
+      font-weight: bold;
+      font-size: 0.85em;
+    }
+    select {
+      width: 100%;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      background-image: url(http://lp.octiv.com/rs/625-MXY-689/images/select-arrow.svg);
+      background-repeat: no-repeat;
+  	  background-position: calc(100% - 1rem);
+      background-size: 20px;
+      padding: 0.5rem;
+  	  -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-size: 18px;
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    }
+    input[type="submit"] {
+      background-color: #ed4c06;
+      color: #fff;
+      border: 0;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }

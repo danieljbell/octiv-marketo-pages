@@ -9,13 +9,18 @@
     .fourth,
     .two-third-reversed,
     .two-third-stack,
-    .half-stack {
+    .two-third-only,
+    .half-stack,
+    .half-only,
+    .third-only {
       display: flex;
     	flex-wrap: wrap;
       align-items: center;
     }
-    .half-stack {
-      flex-direction: row-reverse;
+    .two-third-only,
+    .half-only,
+    .third-only {
+      justify-content: center;
     }
     .two-third > div,
     .half > div,
@@ -23,7 +28,10 @@
     .fourth > div,
     .two-third-reversed > div,
     .two-third-stack > div,
-    .half-stack > div {
+    .two-third-only > div,
+    .half-stack > div,
+    .half-only > div,
+    .third-only > div {
       margin-bottom: 1rem;
       width: 100%;
     }
@@ -35,34 +43,63 @@
       .two-third-reversed > div,
       .two-third-stack > div,
       .half-stack > div {
-        width: 100%;
-        flex: 1;
         margin-bottom: 2rem;
         margin-right: 2rem;
       }
-      .two-third > div:nth-child(2n-1) {
-        min-width: calc(66.1667% - (1rem/3));
+      .two-third > div:last-child,
+      .half > div:last-child,
+      .third > div:last-child,
+      .fourth > div:last-child,
+      .two-third-reversed > div:last-child,
+      .two-third-stack > div:first-child,
+      .half-stack > div:first-child {
+        margin-right: 0rem;
       }
-      .two-third-reversed > div:nth-child(2n) {
-        min-width: calc(66.1667% - (1rem/3));
+      .half > div,
+      .half-stack > div,
+      .half-only > div {
+        flex-basis: calc((100%/2) - 1rem);
       }
-      .two-third-stack > div:nth-child(2n-1) {
-        order: 2;
-        min-width: calc(66.1667% - (1rem/3));
+      .third > div,
+      .third-only > div {
+        flex-basis: calc((100%/3) - ((1rem/3) * 4));
+      }
+      .third > div:nth-child(3n) {
         margin-right: 0;
       }
-      .half-stack > div {
-        margin-left: 2rem;
-        margin-right: 0;
+      .fourth > div {
+        flex-basis: calc((100%/4) - 1.5rem);
+      }
+      .two-third > div:nth-child(2n-1),
+      .two-third-stack > div:nth-child(2n-1),
+      .two-third-only > div {
+        flex-basis: calc(((100%/3) * 2) - 1rem);
       }
       .two-third > div:nth-child(2n),
-      .half > div:nth-child(2n),
-      .third > div:nth-child(3n),
-      .fourth > div:nth-child(4n),
+      .two-third-stack > div:nth-child(2n) {
+        flex-basis: calc((100%/3) - 1rem);
+      }
+      .two-third-reversed > div:nth-child(2n-1) {
+        flex-basis: calc((100%/3) - 1rem);
+      }
       .two-third-reversed > div:nth-child(2n) {
-        margin-right: 0;
+        flex-basis: calc(((100%/3) * 2) - 1rem);
       }
-      .half-stack > div:nth-child(2n) {
-        margin-left: 0;
+      .two-third-stack > div:nth-child(2n-1),
+      .half-stack > div:nth-child(2n-1) {
+        order: 2;
       }
+    }
+    /* OVERRIDES */
+    form .two-third > div,
+    form .half > div,
+    form .third > div,
+    form .fourth > div {
+      margin-bottom: 1rem;
+    }
+    form .two-third-only > div,
+    form .half-only > div,
+    form .third-only > div {
+      margin-top: 1rem;
+      margin-bottom: 0;
     }

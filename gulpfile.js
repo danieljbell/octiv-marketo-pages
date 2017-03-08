@@ -81,7 +81,7 @@ gulp.task('browser-sync', function() {
 
 // Watch files for changes
 gulp.task('watch', function() {
-  gulp.watch(['templates/components/**/*.html', 'templates/components/**/*.css'], ['fileinclude', 'reload']);
+  gulp.watch(['templates/components/**/*.html', 'templates/components/**/*.css', 'templates/components/**/*.js'], ['fileinclude', 'reload']);
   gulp.watch(['templates/layouts/*.tpl.html'], ['fileinclude']);
   gulp.watch(['*.html'], ['reload']);
   gulp.watch(['*.tpl.html'], ['reload']);

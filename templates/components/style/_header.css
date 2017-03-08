@@ -21,6 +21,14 @@
       height: 45px;
       margin: 2rem 0 1rem;
     }
+    .header-number-container {
+      display: flex;
+      justify-content: center;
+    }
+    .header-number-container img {
+      margin-right: 0.5rem;
+      height: 25px;
+    }
     @media screen and (min-width: 767px) {
       header .half div {
         text-align: initial;
@@ -32,5 +40,8 @@
       .site-logo {
         background-position: initial;
         margin: 2rem 0 2rem;
+      }
+      .header-number-container {
+        justify-content: flex-end;
       }
     }

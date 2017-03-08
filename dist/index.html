@@ -15,7 +15,7 @@
   <style>
     /*
     =========================
-    RESET
+    RESET & UTILITY CLASSES
     =========================
     */
     * {
@@ -31,14 +31,17 @@
       color: #000;
       text-align: left;
     }
+    section {
+      padding: 3rem 0;
+    }
     .site-width {
       width: calc(100% - 2rem);
       max-width: 1280px;
       margin-left: auto;
       margin-right: auto;
     }
-    section {
-      padding: 3rem 0;
+    .centered {
+      text-align: center;
     }
     @media screen and (min-width: 767px) {
       html, body {
@@ -84,6 +87,13 @@
     ul li {
       margin-left: 1rem;
     }
+    a {
+      color: #ed4c06;
+      text-decoration: none;
+    }
+    a[href^="tel"] {
+      color: #000;
+    }
     blockquote {
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -97,7 +107,6 @@
     }
     blockquote p {
       margin-top: 1rem;
-      /*margin-bottom: 0;*/
       font-style: initial;
       font-size: 0.85em;
       opacity: 0.65;
@@ -108,6 +117,9 @@
     }
     blockquote strong, blockquote b {
       font-size: 1.25em;
+    }
+    .font-bump {
+      font-size: 1.15em;
     }
     @media screen and (min-width: 767px) {
       h1 {
@@ -128,6 +140,9 @@
       h6 {
         font-size: 1em;
       }
+      .font-bump {
+        font-size: 1.25em;
+      }
     }
 
     /*
@@ -141,13 +156,18 @@
     .fourth,
     .two-third-reversed,
     .two-third-stack,
-    .half-stack {
+    .two-third-only,
+    .half-stack,
+    .half-only,
+    .third-only {
       display: flex;
     	flex-wrap: wrap;
       align-items: center;
     }
-    .half-stack {
-      flex-direction: row-reverse;
+    .two-third-only,
+    .half-only,
+    .third-only {
+      justify-content: center;
     }
     .two-third > div,
     .half > div,
@@ -155,7 +175,10 @@
     .fourth > div,
     .two-third-reversed > div,
     .two-third-stack > div,
-    .half-stack > div {
+    .two-third-only > div,
+    .half-stack > div,
+    .half-only > div,
+    .third-only > div {
       margin-bottom: 1rem;
       width: 100%;
     }
@@ -167,43 +190,107 @@
       .two-third-reversed > div,
       .two-third-stack > div,
       .half-stack > div {
-        width: 100%;
-        flex: 1;
         margin-bottom: 2rem;
         margin-right: 2rem;
       }
-      .two-third > div:nth-child(2n-1) {
-        min-width: calc(66.1667% - (1rem/3));
+      .two-third > div:last-child,
+      .half > div:last-child,
+      .third > div:last-child,
+      .fourth > div:last-child,
+      .two-third-reversed > div:last-child,
+      .two-third-stack > div:first-child,
+      .half-stack > div:first-child {
+        margin-right: 0rem;
       }
-      .two-third-reversed > div:nth-child(2n) {
-        min-width: calc(66.1667% - (1rem/3));
+      .half > div,
+      .half-stack > div,
+      .half-only > div {
+        flex-basis: calc((100%/2) - 1rem);
       }
-      .two-third-stack > div:nth-child(2n-1) {
-        order: 2;
-        min-width: calc(66.1667% - (1rem/3));
+      .third > div,
+      .third-only > div {
+        flex-basis: calc((100%/3) - ((1rem/3) * 4));
+      }
+      .third > div:nth-child(3n) {
         margin-right: 0;
       }
-      .half-stack > div {
-        margin-left: 2rem;
-        margin-right: 0;
+      .fourth > div {
+        flex-basis: calc((100%/4) - 1.5rem);
+      }
+      .two-third > div:nth-child(2n-1),
+      .two-third-stack > div:nth-child(2n-1),
+      .two-third-only > div {
+        flex-basis: calc(((100%/3) * 2) - 1rem);
       }
       .two-third > div:nth-child(2n),
-      .half > div:nth-child(2n),
-      .third > div:nth-child(3n),
-      .fourth > div:nth-child(4n),
-      .two-third-reversed > div:nth-child(2n) {
-        margin-right: 0;
+      .two-third-stack > div:nth-child(2n) {
+        flex-basis: calc((100%/3) - 1rem);
       }
-      .half-stack > div:nth-child(2n) {
-        margin-left: 0;
+      .two-third-reversed > div:nth-child(2n-1) {
+        flex-basis: calc((100%/3) - 1rem);
+      }
+      .two-third-reversed > div:nth-child(2n) {
+        flex-basis: calc(((100%/3) * 2) - 1rem);
+      }
+      .two-third-stack > div:nth-child(2n-1),
+      .half-stack > div:nth-child(2n-1) {
+        order: 2;
       }
     }
+    /* OVERRIDES */
+    form .two-third > div,
+    form .half > div,
+    form .third > div,
+    form .fourth > div {
+      margin-bottom: 1rem;
+    }
+    form .two-third-only > div,
+    form .half-only > div,
+    form .third-only > div {
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
 
-    input[type="text"] {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 0.25rem 0.5rem;
-}
+    /*
+    =========================
+    FORMS
+    =========================
+    */
+    input[type="text"],
+    input[type="submit"] {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    }
+    label {
+      font-weight: bold;
+      font-size: 0.85em;
+    }
+    select {
+      width: 100%;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      background-image: url(http://lp.octiv.com/rs/625-MXY-689/images/select-arrow.svg);
+      background-repeat: no-repeat;
+  	  background-position: calc(100% - 1rem);
+      background-size: 20px;
+      padding: 0.5rem;
+  	  -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-size: 18px;
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    }
+    input[type="submit"] {
+      background-color: #ed4c06;
+      color: #fff;
+      border: 0;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
 
     /*
     =========================
@@ -271,6 +358,14 @@
       height: 45px;
       margin: 2rem 0 1rem;
     }
+    .header-number-container {
+      display: flex;
+      justify-content: center;
+    }
+    .header-number-container img {
+      margin-right: 0.5rem;
+      height: 25px;
+    }
     @media screen and (min-width: 767px) {
       header .half div {
         text-align: initial;
@@ -282,6 +377,30 @@
       .site-logo {
         background-position: initial;
         margin: 2rem 0 2rem;
+      }
+      .header-number-container {
+        justify-content: flex-end;
+      }
+    }
+
+    /*
+    ==============================
+    FOOTER
+    ==============================
+    */
+    footer {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 0.85em;
+      color: rgba(0,0,0,0.65);
+    }
+    footer .site-logo {
+      height: 30px;
+      margin: 0;
+    }
+    @media screen and (min-width: 767px) {
+      footer .half > div:last-child {
+        text-align: right;
       }
     }
 
@@ -319,8 +438,7 @@
   </style>
 </head>
 <body>
-  <main>
-    <!--
+  <!--
     =========================
     STANDARD HEADER
     =========================
@@ -331,15 +449,19 @@
           <div>
             <a href="https://octiv.com" class="site-logo"></a>
           </div>
-          <div>number</div>
+          <div>
+            <a href="tel:844-936-2848" class="header-number-container"><img src="http://lp.octiv.com/rs/625-MXY-689/images/phone.png" alt=""><strong>844.936.2848</strong></a>
+          </div>
         </div>
       </div>
     </header>
 
+  <main>
     <section>
       <div class="site-width">
         <ul>
           <li><a href="/blank-template.html" class="btn-primary">Blank Template</a></li>
+          <li><a href="/basic-offer.html">Basic Offer</a></li>
           <li><a href="#0" class="btn-outline">Button Outline</a></li>
           <li><a href="#0" class="btn-arrow">Button Arrow</a></li>
         </ul>
@@ -426,8 +548,33 @@
           </div>
         </div>
 <pre><code>&lt;div class="two-third-stack"&gt;
-&lt;div&gt;One of Two&lt;/div&gt;
-&lt;div&gt;Two of Two&lt;/div&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <h3>Centered Grid</h3>
+        <div class="has-code-example">
+          <div class="two-third-only">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of One</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="two-third-only"&gt;
+  &lt;div&gt;One of One&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="half-only">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of One</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="half-only"&gt;
+  &lt;div&gt;One of One&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="third-only">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of One</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="third-only"&gt;
+  &lt;div&gt;One of One&lt;/div&gt;
 &lt;/div&gt;</code></pre>
       </div>
     </section>
@@ -467,6 +614,24 @@
       </div>
     </section>
   </main>
+  <!--
+    =========================
+    STANDARD FOOTER
+    =========================
+    -->
+    <footer>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>
+            &copy; <span id="current-year">2017</span> Octiv, Inc. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
   <script>
     (function() {
       var codeExamples = document.querySelectorAll('.has-code-example');

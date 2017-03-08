@@ -1,6 +1,6 @@
 /*
     =========================
-    RESET
+    RESET & UTILITY CLASSES
     =========================
     */
     * {
@@ -16,14 +16,17 @@
       color: #000;
       text-align: left;
     }
+    section {
+      padding: 3rem 0;
+    }
     .site-width {
       width: calc(100% - 2rem);
       max-width: 1280px;
       margin-left: auto;
       margin-right: auto;
     }
-    section {
-      padding: 3rem 0;
+    .centered {
+      text-align: center;
     }
     @media screen and (min-width: 767px) {
       html, body {
@@ -69,6 +72,13 @@
     ul li {
       margin-left: 1rem;
     }
+    a {
+      color: #ed4c06;
+      text-decoration: none;
+    }
+    a[href^="tel"] {
+      color: #000;
+    }
     blockquote {
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -82,7 +92,6 @@
     }
     blockquote p {
       margin-top: 1rem;
-      /*margin-bottom: 0;*/
       font-style: initial;
       font-size: 0.85em;
       opacity: 0.65;
@@ -93,6 +102,9 @@
     }
     blockquote strong, blockquote b {
       font-size: 1.25em;
+    }
+    .font-bump {
+      font-size: 1.15em;
     }
     @media screen and (min-width: 767px) {
       h1 {
@@ -112,5 +124,8 @@
       }
       h6 {
         font-size: 1em;
+      }
+      .font-bump {
+        font-size: 1.25em;
       }
     }

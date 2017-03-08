@@ -13,6 +13,7 @@
     @@include('style/_forms.css')
     @@include('style/_buttons.css')
     @@include('style/_header.css')
+    @@include('style/_footer.css')
 
     pre {
       display: none;
@@ -47,12 +48,13 @@
   </style>
 </head>
 <body>
+  @@include('header/_standard-header.html')
   <main>
-    @@include('header/_standard-header.html')
     <section>
       <div class="site-width">
         <ul>
           <li><a href="/blank-template.html" class="btn-primary">Blank Template</a></li>
+          <li><a href="/basic-offer.html">Basic Offer</a></li>
           <li><a href="#0" class="btn-outline">Button Outline</a></li>
           <li><a href="#0" class="btn-arrow">Button Arrow</a></li>
         </ul>
@@ -139,8 +141,33 @@
           </div>
         </div>
 <pre><code>&lt;div class="two-third-stack"&gt;
-&lt;div&gt;One of Two&lt;/div&gt;
-&lt;div&gt;Two of Two&lt;/div&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <h3>Centered Grid</h3>
+        <div class="has-code-example">
+          <div class="two-third-only">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of One</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="two-third-only"&gt;
+  &lt;div&gt;One of One&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="half-only">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of One</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="half-only"&gt;
+  &lt;div&gt;One of One&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="third-only">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of One</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="third-only"&gt;
+  &lt;div&gt;One of One&lt;/div&gt;
 &lt;/div&gt;</code></pre>
       </div>
     </section>
@@ -180,6 +207,7 @@
       </div>
     </section>
   </main>
+  @@include('footer/_standard-footer.html')
   <script>
     (function() {
       var codeExamples = document.querySelectorAll('.has-code-example');

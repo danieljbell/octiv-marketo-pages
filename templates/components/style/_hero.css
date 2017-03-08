@@ -1,0 +1,26 @@
+/*
+    =========================
+    HERO
+    =========================
+    */
+    .hero {
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: #fff;
+      padding: 3rem 0 6rem;
+      box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+    }
+    .hero h1 {
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.75);
+    }
+    .hero h5 {
+      font-weight: normal;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+      margin-bottom: 0;
+    }
+    @media screen and (min-width: 767px) {
+      .hero {
+        padding: 6rem 0 9rem;
+      }
+    }
