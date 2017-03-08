@@ -34,6 +34,10 @@
     section {
       padding: 3rem 0;
     }
+    hr {
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
     .site-width {
       width: calc(100% - 2rem);
       max-width: 1280px;
@@ -46,6 +50,9 @@
     @media screen and (min-width: 767px) {
       html, body {
         font-size: 18px;
+      }
+      section {
+        padding: 6rem 0;
       }
       .site-width {
         width: calc(100% - 4rem);
@@ -257,6 +264,7 @@
     =========================
     */
     [class^="btn"] {
+      display: inline-block;
       color: #fff;
       border-radius: 5px;
       padding: 0.5rem 1rem;
@@ -266,6 +274,7 @@
     }
     .btn-primary {
       background-color: #ed4c06;
+      letter-spacing: 0.5px;
     }
     .btn-primary:hover {
       background-color: #fa7c45;
@@ -393,8 +402,11 @@
       background-position: center;
       text-align: center;
       color: #fff;
-      padding: 3rem 0 6rem;
+      padding: 3rem 0;
       box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+    }
+    .hero-pulled {
+      padding: 3rem 0 6rem;
     }
     .hero h1 {
       text-shadow: 3px 3px 6px rgba(0,0,0,0.75);
@@ -404,8 +416,20 @@
       text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
       margin-bottom: 0;
     }
+    .hero-cta h3 {
+      color: #fff;
+      font-weight: normal;
+      font-style: italic;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+    }
+    .hero-cta h5 {
+      margin-bottom: 2rem;
+    }
     @media screen and (min-width: 767px) {
       .hero {
+        padding: 6rem 0;
+      }
+      .hero-pulled {
         padding: 6rem 0 9rem;
       }
     }
@@ -425,10 +449,15 @@
     }
     .pull-top {
       margin-top: -6rem;
+      margin-bottom: -2rem;
     }
     @media screen and (min-width: 767px) {
       .box {
         padding: 2rem;
+      }
+      .pull-top {
+        margin-top: -10rem;
+        margin-bottom: -4rem;
       }
     }
 
@@ -439,7 +468,6 @@
     */
     footer {
       text-align: center;
-      margin-bottom: 1rem;
       font-size: 0.85em;
       color: rgba(0,0,0,0.65);
     }
@@ -475,17 +503,22 @@
     </header>
 
   <main>
-    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(//fillmurray.com/1920/445);">
-  <div class="site-width">
-    <h1>Thanks {{lead.First Name}}</h1>
-    <h5>We’re glad you’re here!</h5>
-  </div>
-</section>
+    <!--
+    =========================
+    HERO WITH PULL
+    =========================
+    -->
+    <section class="hero hero-pulled" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(//fillmurray.com/1920/445);">
+      <div class="site-width">
+        <h1>Thanks {{lead.First Name}}</h1>
+        <h5>We’re glad you’re here!</h5>
+      </div>
+    </section>
 
     <section class="pull-top">
   <div class="site-width">
     <div class="box">
-      <div class="half-only">
+      <div class="two-third-only">
         <div class="centered">
           <p class="font-bump">Thanks for reconnecting with us! Fill in the form, and you’ll be entered to win a $500 Visa gift card as a token of our gratitude.</p>
         </div>
@@ -571,8 +604,8 @@
 
     function getScripts() {
       var now = new Date();
-var currentYearContainer = document.querySelector('#current-year');
-currentYearContainer.innerText = now.getFullYear();
+      var currentYearContainer = document.querySelector('#current-year');
+      currentYearContainer.innerText = now.getFullYear();
 
     }
   </script>

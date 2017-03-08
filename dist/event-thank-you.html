@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Other Meta -->
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- /Other Meta -->
+
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" type="text/css" />
+
+  <title>Document</title>
+  <style>
+    /*
+    =========================
+    RESET & UTILITY CLASSES
+    =========================
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 300;
+      color: #000;
+      text-align: left;
+    }
+    section {
+      padding: 3rem 0;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
+    .site-width {
+      width: calc(100% - 2rem);
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .centered {
+      text-align: center;
+    }
+    @media screen and (min-width: 767px) {
+      html, body {
+        font-size: 18px;
+      }
+      section {
+        padding: 6rem 0;
+      }
+      .site-width {
+        width: calc(100% - 4rem);
+      }
+    }
+
+
+    /*
+    =========================
+    TYPOGRAPHY
+    =========================
+    */
+    h1, h2, h3, h4, h5, h6, p, ul {
+      margin-bottom: 1rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 0.8;
+    }
+    h1 {
+      font-size: 1.75em;
+    }
+    h2 {
+      font-size: 1.6em;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-size: 1.45em;
+      color: #ed4c06;
+    }
+    h4 {
+      font-size: 1.3em;
+    }
+    h5 {
+      font-size: 1.15em;
+    }
+    h6 {
+      font-size: 1em;
+    }
+    ul li {
+      margin-left: 1rem;
+    }
+    a {
+      color: #ed4c06;
+      text-decoration: none;
+    }
+    a[href^="tel"] {
+      color: #000;
+    }
+    blockquote {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#fff,#f0f0f0);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 1rem;
+      font-style: italic;
+      font-size: 1.15em;
+      line-height: 1.2;
+    }
+    blockquote p {
+      margin-top: 1rem;
+      font-style: initial;
+      font-size: 0.85em;
+      opacity: 0.65;
+    }
+    blockquote strong, blockquote b,
+    blockquote em, blockquote i {
+      display: block;
+    }
+    blockquote strong, blockquote b {
+      font-size: 1.25em;
+    }
+    .font-bump {
+      font-size: 1.15em;
+    }
+    @media screen and (min-width: 767px) {
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.8em;
+      }
+      h3 {
+        font-size: 1.6em;
+      }
+      h4 {
+        font-size: 1.4em;
+      }
+      h5 {
+        font-size: 1.2em;
+      }
+      h6 {
+        font-size: 1em;
+      }
+      .font-bump {
+        font-size: 1.25em;
+      }
+    }
+
+    /*
+    ==============================
+    GRID
+    ==============================
+    */
+    .two-third,
+    .half,
+    .third,
+    .fourth,
+    .two-third-reversed,
+    .two-third-stack,
+    .two-third-only,
+    .half-stack,
+    .half-only,
+    .third-only {
+      display: flex;
+    	flex-wrap: wrap;
+      align-items: center;
+    }
+    .two-third-only,
+    .half-only,
+    .third-only {
+      justify-content: center;
+    }
+    .two-third > div,
+    .half > div,
+    .third > div,
+    .fourth > div,
+    .two-third-reversed > div,
+    .two-third-stack > div,
+    .two-third-only > div,
+    .half-stack > div,
+    .half-only > div,
+    .third-only > div {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    @media screen and (min-width: 767px) {
+      .two-third > div,
+      .half > div,
+      .third > div,
+      .fourth > div,
+      .two-third-reversed > div,
+      .two-third-stack > div,
+      .half-stack > div {
+        margin-bottom: 2rem;
+        margin-right: 2rem;
+      }
+      .two-third > div:last-child,
+      .half > div:last-child,
+      .third > div:last-child,
+      .fourth > div:last-child,
+      .two-third-reversed > div:last-child,
+      .two-third-stack > div:first-child,
+      .half-stack > div:first-child {
+        margin-right: 0rem;
+      }
+      .half > div,
+      .half-stack > div,
+      .half-only > div {
+        flex-basis: calc((100%/2) - 1rem);
+      }
+      .third > div,
+      .third-only > div {
+        flex-basis: calc((100%/3) - ((1rem/3) * 4));
+      }
+      .third > div:nth-child(3n) {
+        margin-right: 0;
+      }
+      .fourth > div {
+        flex-basis: calc((100%/4) - 1.5rem);
+      }
+      .two-third > div:nth-child(2n-1),
+      .two-third-stack > div:nth-child(2n-1),
+      .two-third-only > div {
+        flex-basis: calc(((100%/3) * 2) - 1rem);
+      }
+      .two-third > div:nth-child(2n),
+      .two-third-stack > div:nth-child(2n) {
+        flex-basis: calc((100%/3) - 1rem);
+      }
+      .two-third-reversed > div:nth-child(2n-1) {
+        flex-basis: calc((100%/3) - 1rem);
+      }
+      .two-third-reversed > div:nth-child(2n) {
+        flex-basis: calc(((100%/3) * 2) - 1rem);
+      }
+      .two-third-stack > div:nth-child(2n-1),
+      .half-stack > div:nth-child(2n-1) {
+        order: 2;
+      }
+    }
+    /* OVERRIDES */
+    form .two-third > div,
+    form .half > div,
+    form .third > div,
+    form .fourth > div {
+      margin-bottom: 1rem;
+    }
+    form .two-third-only > div,
+    form .half-only > div,
+    form .third-only > div {
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    /*
+    =========================
+    BUTTONS
+    =========================
+    */
+    [class^="btn"] {
+      display: inline-block;
+      color: #fff;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 200ms ease-out;
+    }
+    .btn-primary {
+      background-color: #ed4c06;
+      letter-spacing: 0.5px;
+    }
+    .btn-primary:hover {
+      background-color: #fa7c45;
+    }
+    .btn-outline {
+      border: 1px solid #ed4c06;
+      color: #ed4c06;
+    }
+    .btn-outline:hover {
+      background-color: #ed4c06;
+      color: #fff;
+    }
+    .btn-arrow {
+      box-shadow: inset 0 -2px 0 #42b0d6;
+      color: #000;
+      padding: 0;
+      border-radius: 0;
+    }
+    .btn-arrow:after {
+      content: ">";
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+    .btn-arrow:hover {
+      box-shadow: inset 0 -22px 0 #42b0d6;
+      color: #fff;
+    }
+
+    /*
+    ==============================
+    HEADER
+    ==============================
+    */
+    header {
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    }
+    header .half div {
+      margin-bottom: 0;
+      text-align: center;
+    }
+    header .half div:last-child {
+      margin-bottom: 2rem;
+    }
+    .site-logo {
+      background-image: url(http://lp.octiv.com/rs/625-MXY-689/images/Octiv-Logo-Color.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: 45px;
+      margin: 2rem 0 1rem;
+    }
+    .header-number-container {
+      display: flex;
+      justify-content: center;
+    }
+    .header-number-container img {
+      margin-right: 0.5rem;
+      height: 25px;
+    }
+    @media screen and (min-width: 767px) {
+      header .half div {
+        text-align: initial;
+      }
+      header .half div:last-child {
+        text-align: right;
+        margin-bottom: 0;
+      }
+      .site-logo {
+        background-position: initial;
+        margin: 2rem 0 2rem;
+      }
+      .header-number-container {
+        justify-content: flex-end;
+      }
+    }
+
+    /*
+    =========================
+    HERO
+    =========================
+    */
+    .hero {
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: #fff;
+      padding: 3rem 0;
+      box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+    }
+    .hero-pulled {
+      padding: 3rem 0 6rem;
+    }
+    .hero h1 {
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.75);
+    }
+    .hero h5 {
+      font-weight: normal;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+      margin-bottom: 0;
+    }
+    .hero-cta h3 {
+      color: #fff;
+      font-weight: normal;
+      font-style: italic;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+    }
+    .hero-cta h5 {
+      margin-bottom: 2rem;
+    }
+    @media screen and (min-width: 767px) {
+      .hero {
+        padding: 6rem 0;
+      }
+      .hero-pulled {
+        padding: 6rem 0 9rem;
+      }
+    }
+
+    /*
+    ==============================
+    FOOTER
+    ==============================
+    */
+    footer {
+      text-align: center;
+      font-size: 0.85em;
+      color: rgba(0,0,0,0.65);
+    }
+    footer .site-logo {
+      height: 30px;
+      margin: 0;
+    }
+    @media screen and (min-width: 767px) {
+      footer .half > div:last-child {
+        text-align: right;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!--
+    =========================
+    STANDARD HEADER
+    =========================
+    -->
+    <header>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>
+            <a href="tel:844-936-2848" class="header-number-container"><img src="http://lp.octiv.com/rs/625-MXY-689/images/phone.png" alt=""><strong>844.936.2848</strong></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <main>
+    <!--
+    =========================
+    HERO
+    =========================
+    -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(//fillmurray.com/1920/445);">
+      <div class="site-width">
+        <h1>Thanks {{lead.First Name}}</h1>
+        <h5>We’re glad you’re here!</h5>
+      </div>
+    </section>
+
+  </main>
+  <!--
+    =========================
+    STANDARD FOOTER
+    =========================
+    -->
+    <footer>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>
+            &copy; <span id="current-year">2017</span> Octiv, Inc. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    window.onload = getScripts;
+
+    function getScripts() {
+      var now = new Date();
+      var currentYearContainer = document.querySelector('#current-year');
+      currentYearContainer.innerText = now.getFullYear();
+
+    }
+  </script>
+</body>
+</html>

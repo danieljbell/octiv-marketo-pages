@@ -1,0 +1,31 @@
+/*
+    =========================
+    SPEAKER BOX
+    =========================
+    */
+    .speaker-box {
+      display: flex;
+      padding: 0;
+    }
+    .speaker-box > div {
+      flex: 1;
+    }
+    .speaker-box-img {
+      background-image: url(//fillmurray.com/400/400);
+      background-position: center;
+      border-radius: 5px 0 0 5px;
+    }
+    .speaker-box-content {
+      padding: 2rem 1rem;
+    }
+    .speaker-box-content > * {
+      margin-bottom: 0;
+    }
+    .speaker-social li {
+      display: inline-block;
+      margin-left: 0;
+      margin-right: 0.5rem;
+    }
+    .speaker-social li:last-child {
+      margin-right: 0;
+    }

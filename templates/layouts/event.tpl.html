@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  @@include('meta/_other.html')
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" type="text/css" />
+
+  <title>Document</title>
+  <style>
+    @@include('style/_base.css')
+    @@include('style/_grid.css')
+    @@include('style/_buttons.css')
+    @@include('style/_header.css')
+    @@include('style/_hero.css')
+    @@include('style/_box.css')
+    @@include('style/_speaker-box.css')
+    @@include('style/_footer.css')
+  </style>
+</head>
+<body>
+  @@include('header/_standard-header.html')
+  <main>
+    @@include('hero/_hero-with-cta.html')
+    <section>
+      <div class="site-width">
+        <div class="two-third-only">
+          <div class="centered">
+            <h2 style="margin-bottom: 0;">Agenda</h2>
+            <p>What’s the schedule looking like today?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="site-width">
+      <hr>
+    </div>
+    <section>
+      <div class="site-width">
+        <div class="two-third-only">
+          <div class="centered">
+            <h2 style="margin-bottom: 0;">Speakers</h2>
+            <p>Something about our many awesome speakers</p>
+          </div>
+        </div>
+        <div class="third">
+          <div class="box speaker-box">
+            <div class="speaker-box-img"></div>
+            <div class="speaker-box-content">
+              <h4>First Last</h4>
+              <p><em>Job Title</em></p>
+              <p>Company</p>
+              <ul class="speaker-social">
+                <li><a href="#0" title="Twitter"><img src="//unsplash.it/25/25" alt=""></a></li>
+                <li><a href="#0" title="Facebook"><img src="//unsplash.it/25/25" alt=""></a></li>
+                <li><a href="#0" title="LinkedIn"><img src="//unsplash.it/25/25" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="box speaker-box">
+            <div class="speaker-box-img"></div>
+            <div class="speaker-box-content">
+              <h4>First Last</h4>
+              <p><em>Job Title</em></p>
+              <p>Company</p>
+              <ul class="speaker-social">
+                <li><a href="#0" title="Twitter"><img src="//unsplash.it/25/25" alt=""></a></li>
+                <li><a href="#0" title="Facebook"><img src="//unsplash.it/25/25" alt=""></a></li>
+                <li><a href="#0" title="LinkedIn"><img src="//unsplash.it/25/25" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="box speaker-box">
+            <div class="speaker-box-img"></div>
+            <div class="speaker-box-content">
+              <h4>First Last</h4>
+              <p><em>Job Title</em></p>
+              <p>Company</p>
+              <ul class="speaker-social">
+                <li><a href="#0" title="Twitter"><img src="//unsplash.it/25/25" alt=""></a></li>
+                <li><a href="#0" title="Facebook"><img src="//unsplash.it/25/25" alt=""></a></li>
+                <li><a href="#0" title="LinkedIn"><img src="//unsplash.it/25/25" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="site-width">
+      <hr>
+    </div>
+    <section>
+      <div class="site-width">
+        <div class="two-third-only">
+          <div class="centered">
+            <h2 style="margin-bottom: 0;">Partners</h2>
+            <p>Who’s going to be there?</p>
+          </div>
+        </div>
+        <div class="fourth">
+          <div class="box">
+            <a href="#0"><img src="//fillmurray.com/200/100" alt=""></a>
+          </div>
+          <div class="box">
+            <a href="#0"><img src="//fillmurray.com/200/100" alt=""></a>
+          </div>
+          <div class="box">
+            <a href="#0"><img src="//fillmurray.com/200/100" alt=""></a>
+          </div>
+          <div class="box">
+            <a href="#0"><img src="//fillmurray.com/200/100" alt=""></a>
+          </div>
+          <div class="box">
+            <a href="#0"><img src="//fillmurray.com/200/100" alt=""></a>
+          </div>
+          <div class="box">
+            <a href="#0"><img src="//fillmurray.com/200/100" alt=""></a>
+          </div>
+          <div class="box">
+            <a href="#0"><img src="//fillmurray.com/200/100" alt=""></a>
+          </div>
+          <div class="box">
+            <a href="#0"><img src="//fillmurray.com/200/100" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="background-color: green;">
+      <div class="site-width">
+        Daniel
+      </div>
+    </section>
+  </main>
+  @@include('footer/_standard-footer.html')
+  <script>
+    window.onload = getScripts;
+
+    function getScripts() {
+      @@include('scripts/_current-year.js')
+    }
+  </script>
+</body>
+</html>

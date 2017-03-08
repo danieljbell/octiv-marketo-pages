@@ -34,6 +34,10 @@
     section {
       padding: 3rem 0;
     }
+    hr {
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
     .site-width {
       width: calc(100% - 2rem);
       max-width: 1280px;
@@ -46,6 +50,9 @@
     @media screen and (min-width: 767px) {
       html, body {
         font-size: 18px;
+      }
+      section {
+        padding: 6rem 0;
       }
       .site-width {
         width: calc(100% - 4rem);
@@ -257,6 +264,7 @@
     =========================
     */
     [class^="btn"] {
+      display: inline-block;
       color: #fff;
       border-radius: 5px;
       padding: 0.5rem 1rem;
@@ -266,6 +274,7 @@
     }
     .btn-primary {
       background-color: #ed4c06;
+      letter-spacing: 0.5px;
     }
     .btn-primary:hover {
       background-color: #fa7c45;
@@ -342,11 +351,30 @@
       }
     }
 
+    /*
+    ==============================
+    FOOTER
+    ==============================
+    */
+    footer {
+      text-align: center;
+      font-size: 0.85em;
+      color: rgba(0,0,0,0.65);
+    }
+    footer .site-logo {
+      height: 30px;
+      margin: 0;
+    }
+    @media screen and (min-width: 767px) {
+      footer .half > div:last-child {
+        text-align: right;
+      }
+    }
+
   </style>
 </head>
 <body>
-  <main>
-    <!--
+  <!--
     =========================
     STANDARD HEADER
     =========================
@@ -364,11 +392,40 @@
       </div>
     </header>
 
+  <main>
     <section>
       <div class="site-width">
         <h1>Blank Template</h1>
       </div>
     </section>
   </main>
+  <!--
+    =========================
+    STANDARD FOOTER
+    =========================
+    -->
+    <footer>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>
+            &copy; <span id="current-year">2017</span> Octiv, Inc. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    window.onload = getScripts;
+
+    function getScripts() {
+      var now = new Date();
+      var currentYearContainer = document.querySelector('#current-year');
+      currentYearContainer.innerText = now.getFullYear();
+
+    }
+  </script>
 </body>
 </html>

@@ -12,16 +12,25 @@
     @@include('style/_grid.css')
     @@include('style/_buttons.css')
     @@include('style/_header.css')
+    @@include('style/_footer.css')
   </style>
 </head>
 <body>
+  @@include('header/_standard-header.html')
   <main>
-    @@include('header/_standard-header.html')
     <section>
       <div class="site-width">
         <h1>Blank Template</h1>
       </div>
     </section>
   </main>
+  @@include('footer/_standard-footer.html')
+  <script>
+    window.onload = getScripts;
+
+    function getScripts() {
+      @@include('scripts/_current-year.js')
+    }
+  </script>
 </body>
 </html>

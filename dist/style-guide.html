@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Other Meta -->
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- /Other Meta -->
+
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" type="text/css" />
+
+  <title>Document</title>
+  <style>
+    /*
+    =========================
+    RESET & UTILITY CLASSES
+    =========================
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 300;
+      color: #000;
+      text-align: left;
+    }
+    section {
+      padding: 3rem 0;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
+    .site-width {
+      width: calc(100% - 2rem);
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .centered {
+      text-align: center;
+    }
+    @media screen and (min-width: 767px) {
+      html, body {
+        font-size: 18px;
+      }
+      section {
+        padding: 6rem 0;
+      }
+      .site-width {
+        width: calc(100% - 4rem);
+      }
+    }
+
+
+    /*
+    =========================
+    TYPOGRAPHY
+    =========================
+    */
+    h1, h2, h3, h4, h5, h6, p, ul {
+      margin-bottom: 1rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 0.8;
+    }
+    h1 {
+      font-size: 1.75em;
+    }
+    h2 {
+      font-size: 1.6em;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-size: 1.45em;
+      color: #ed4c06;
+    }
+    h4 {
+      font-size: 1.3em;
+    }
+    h5 {
+      font-size: 1.15em;
+    }
+    h6 {
+      font-size: 1em;
+    }
+    ul li {
+      margin-left: 1rem;
+    }
+    a {
+      color: #ed4c06;
+      text-decoration: none;
+    }
+    a[href^="tel"] {
+      color: #000;
+    }
+    blockquote {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#fff,#f0f0f0);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 1rem;
+      font-style: italic;
+      font-size: 1.15em;
+      line-height: 1.2;
+    }
+    blockquote p {
+      margin-top: 1rem;
+      font-style: initial;
+      font-size: 0.85em;
+      opacity: 0.65;
+    }
+    blockquote strong, blockquote b,
+    blockquote em, blockquote i {
+      display: block;
+    }
+    blockquote strong, blockquote b {
+      font-size: 1.25em;
+    }
+    .font-bump {
+      font-size: 1.15em;
+    }
+    @media screen and (min-width: 767px) {
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.8em;
+      }
+      h3 {
+        font-size: 1.6em;
+      }
+      h4 {
+        font-size: 1.4em;
+      }
+      h5 {
+        font-size: 1.2em;
+      }
+      h6 {
+        font-size: 1em;
+      }
+      .font-bump {
+        font-size: 1.25em;
+      }
+    }
+
+    /*
+    ==============================
+    GRID
+    ==============================
+    */
+    .two-third,
+    .half,
+    .third,
+    .fourth,
+    .two-third-reversed,
+    .two-third-stack,
+    .two-third-only,
+    .half-stack,
+    .half-only,
+    .third-only {
+      display: flex;
+    	flex-wrap: wrap;
+      align-items: center;
+    }
+    .two-third-only,
+    .half-only,
+    .third-only {
+      justify-content: center;
+    }
+    .two-third > div,
+    .half > div,
+    .third > div,
+    .fourth > div,
+    .two-third-reversed > div,
+    .two-third-stack > div,
+    .two-third-only > div,
+    .half-stack > div,
+    .half-only > div,
+    .third-only > div {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    @media screen and (min-width: 767px) {
+      .two-third > div,
+      .half > div,
+      .third > div,
+      .fourth > div,
+      .two-third-reversed > div,
+      .two-third-stack > div,
+      .half-stack > div {
+        margin-bottom: 2rem;
+        margin-right: 2rem;
+      }
+      .two-third > div:last-child,
+      .half > div:last-child,
+      .third > div:last-child,
+      .fourth > div:last-child,
+      .two-third-reversed > div:last-child,
+      .two-third-stack > div:first-child,
+      .half-stack > div:first-child {
+        margin-right: 0rem;
+      }
+      .half > div,
+      .half-stack > div,
+      .half-only > div {
+        flex-basis: calc((100%/2) - 1rem);
+      }
+      .third > div,
+      .third-only > div {
+        flex-basis: calc((100%/3) - ((1rem/3) * 4));
+      }
+      .third > div:nth-child(3n) {
+        margin-right: 0;
+      }
+      .fourth > div {
+        flex-basis: calc((100%/4) - 1.5rem);
+      }
+      .two-third > div:nth-child(2n-1),
+      .two-third-stack > div:nth-child(2n-1),
+      .two-third-only > div {
+        flex-basis: calc(((100%/3) * 2) - 1rem);
+      }
+      .two-third > div:nth-child(2n),
+      .two-third-stack > div:nth-child(2n) {
+        flex-basis: calc((100%/3) - 1rem);
+      }
+      .two-third-reversed > div:nth-child(2n-1) {
+        flex-basis: calc((100%/3) - 1rem);
+      }
+      .two-third-reversed > div:nth-child(2n) {
+        flex-basis: calc(((100%/3) * 2) - 1rem);
+      }
+      .two-third-stack > div:nth-child(2n-1),
+      .half-stack > div:nth-child(2n-1) {
+        order: 2;
+      }
+    }
+    /* OVERRIDES */
+    form .two-third > div,
+    form .half > div,
+    form .third > div,
+    form .fourth > div {
+      margin-bottom: 1rem;
+    }
+    form .two-third-only > div,
+    form .half-only > div,
+    form .third-only > div {
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    /*
+    =========================
+    FORMS
+    =========================
+    */
+    input[type="text"],
+    input[type="submit"] {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    }
+    label {
+      font-weight: bold;
+      font-size: 0.85em;
+    }
+    select {
+      width: 100%;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      background-image: url(http://lp.octiv.com/rs/625-MXY-689/images/select-arrow.svg);
+      background-repeat: no-repeat;
+  	  background-position: calc(100% - 1rem);
+      background-size: 20px;
+      padding: 0.5rem;
+  	  -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-size: 18px;
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    }
+    input[type="submit"] {
+      background-color: #ed4c06;
+      color: #fff;
+      border: 0;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /*
+    =========================
+    BUTTONS
+    =========================
+    */
+    [class^="btn"] {
+      display: inline-block;
+      color: #fff;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 200ms ease-out;
+    }
+    .btn-primary {
+      background-color: #ed4c06;
+      letter-spacing: 0.5px;
+    }
+    .btn-primary:hover {
+      background-color: #fa7c45;
+    }
+    .btn-outline {
+      border: 1px solid #ed4c06;
+      color: #ed4c06;
+    }
+    .btn-outline:hover {
+      background-color: #ed4c06;
+      color: #fff;
+    }
+    .btn-arrow {
+      box-shadow: inset 0 -2px 0 #42b0d6;
+      color: #000;
+      padding: 0;
+      border-radius: 0;
+    }
+    .btn-arrow:after {
+      content: ">";
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+    .btn-arrow:hover {
+      box-shadow: inset 0 -22px 0 #42b0d6;
+      color: #fff;
+    }
+
+    /*
+    ==============================
+    HEADER
+    ==============================
+    */
+    header {
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    }
+    header .half div {
+      margin-bottom: 0;
+      text-align: center;
+    }
+    header .half div:last-child {
+      margin-bottom: 2rem;
+    }
+    .site-logo {
+      background-image: url(http://lp.octiv.com/rs/625-MXY-689/images/Octiv-Logo-Color.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: 45px;
+      margin: 2rem 0 1rem;
+    }
+    .header-number-container {
+      display: flex;
+      justify-content: center;
+    }
+    .header-number-container img {
+      margin-right: 0.5rem;
+      height: 25px;
+    }
+    @media screen and (min-width: 767px) {
+      header .half div {
+        text-align: initial;
+      }
+      header .half div:last-child {
+        text-align: right;
+        margin-bottom: 0;
+      }
+      .site-logo {
+        background-position: initial;
+        margin: 2rem 0 2rem;
+      }
+      .header-number-container {
+        justify-content: flex-end;
+      }
+    }
+
+    /*
+    ==============================
+    FOOTER
+    ==============================
+    */
+    footer {
+      text-align: center;
+      font-size: 0.85em;
+      color: rgba(0,0,0,0.65);
+    }
+    footer .site-logo {
+      height: 30px;
+      margin: 0;
+    }
+    @media screen and (min-width: 767px) {
+      footer .half > div:last-child {
+        text-align: right;
+      }
+    }
+
+
+    pre {
+      display: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#fff, #f0f0f0);
+      padding: 2rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: all 300ms ease-out;
+    }
+    .site-width > h2 {
+      /*background-color: #ed4c06;*/
+      /*color: #fff;*/
+      /*border-radius: 5px;*/
+
+    }
+    .centered {
+      text-align: center;
+      padding: 0 0 1rem;
+      margin: 0 0 1rem;
+      border-bottom: 1px solid #ccc;
+    }
+    .centered h2,
+    .centered p {
+      margin-bottom: 0;
+    }
+    .example-is-open + pre {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    =========================
+    STANDARD HEADER
+    =========================
+    -->
+    <header>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>
+            <a href="tel:844-936-2848" class="header-number-container"><img src="http://lp.octiv.com/rs/625-MXY-689/images/phone.png" alt=""><strong>844.936.2848</strong></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <main>
+    <section>
+      <div class="site-width">
+        <div class="centered">
+          <h2>The Grid</h2>
+          <p>For code examples, click the element you want to see.</p>
+        </div>
+        <h3>Standard Grid</h3>
+        <div class="has-code-example">
+          <div class="half">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="half"&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="third">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Three</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Three</div>
+            <div style="border-radius: 5px; background-color: #b949f5; color: #fff; text-align: center; padding: 1rem;">Three of Three</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="third"&gt;
+  &lt;div&gt;One of Three&lt;/div&gt;
+  &lt;div&gt;Two of Three&lt;/div&gt;
+  &lt;div&gt;Three of Three&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="fourth">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Four</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Four</div>
+            <div style="border-radius: 5px; background-color: #b949f5; color: #fff; text-align: center; padding: 1rem;">Three of Four</div>
+            <div style="border-radius: 5px; background-color: #fac500; color: #fff; text-align: center; padding: 1rem;">Four of Four</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="fourth"&gt;
+  &lt;div&gt;One of Four&lt;/div&gt;
+  &lt;div&gt;Two of Four&lt;/div&gt;
+  &lt;div&gt;Three of Four&lt;/div&gt;
+  &lt;div&gt;Four of Four&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="two-third">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="two-third"&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="two-third-reversed">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="two-third-reversed"&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <h3>Stack Order Grid</h3>
+        <div class="has-code-example">
+          <div class="half-stack">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="half-stack"&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="two-third-stack">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of Two</div>
+            <div style="border-radius: 5px; background-color: #33ab40; color: #fff; text-align: center; padding: 1rem;">Two of Two</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="two-third-stack"&gt;
+  &lt;div&gt;One of Two&lt;/div&gt;
+  &lt;div&gt;Two of Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <h3>Centered Grid</h3>
+        <div class="has-code-example">
+          <div class="two-third-only">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of One</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="two-third-only"&gt;
+  &lt;div&gt;One of One&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="half-only">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of One</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="half-only"&gt;
+  &lt;div&gt;One of One&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <div class="has-code-example">
+          <div class="third-only">
+            <div style="border-radius: 5px; background-color: #42b0d8; color: #fff; text-align: center; padding: 1rem;">One of One</div>
+          </div>
+        </div>
+<pre><code>&lt;div class="third-only"&gt;
+  &lt;div&gt;One of One&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+    <section>
+      <div class="site-width">
+        <div class="centered">
+          <h2>Typography</h2>
+        </div>
+        <h1>Heading One</h1>
+        <div>
+          <h2>Heading Two</h2>
+        </div>
+        <h3>Heading Three</h3>
+        <h4>Heading Four</h4>
+        <h5>Heading Five</h5>
+        <h6>Heading Six</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam distinctio architecto neque ratione at, aliquam, omnis porro voluptatibus quod inventore corrupti. Quidem nobis non aliquam.</p>
+        <ul>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, labore!</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, quo.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, harum.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, possimus.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, voluptatum!</li>
+        </ul>
+        <blockquote>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit distinctio ex quidem nemo veritatis possimus. Atque temporibus adipisci ex non voluptatem voluptates, sunt, obcaecati. Dicta.
+          <p><div style="width: 100px; height: 100px; border-radius: 50%; background-color: blue; float: left; margin-right: 1rem;"></div><strong>First Last</strong> <em>Title</em> Company</p>
+        </blockquote>
+      </div>
+    </section>
+    <section>
+      <div class="site-width">
+        <form action="">
+          <label for="name">First Name</label>
+          <input type="text" id="name">
+        </form>
+      </div>
+    </section>
+  </main>
+  <!--
+    =========================
+    STANDARD FOOTER
+    =========================
+    -->
+    <footer>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>
+            &copy; <span id="current-year">2017</span> Octiv, Inc. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    (function() {
+      var codeExamples = document.querySelectorAll('.has-code-example');
+      for (var i = 0; i < codeExamples.length; i++) {
+        codeExamples[i].addEventListener('click', function() {
+          this.classList.toggle('example-is-open');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
