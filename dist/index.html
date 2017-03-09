@@ -264,6 +264,8 @@
     =========================
     */
     input[type="text"],
+    input[type="tel"],
+    input[type="email"],
     input[type="submit"] {
       width: 100%;
       border: 1px solid #ccc;
@@ -297,6 +299,12 @@
       border: 0;
       font-weight: bold;
       letter-spacing: 0.5px;
+    }
+    .mktoAsterix {
+      visibility: hidden;
+      display: inline-block;
+      width: 0;
+      color: #ed4c06;
     }
 
     /*
@@ -449,6 +457,11 @@
     window.onload = getScripts;
 
     function getScripts() {
+      /*
+      ==============================
+      CURRENT YEAR
+      ==============================
+      */
       var now = new Date();
       var currentYearContainer = document.querySelector('#current-year');
       currentYearContainer.innerText = now.getFullYear();

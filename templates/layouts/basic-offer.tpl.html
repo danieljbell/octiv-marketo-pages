@@ -30,6 +30,13 @@
 
     function getScripts() {
       @@include('scripts/_current-year.js')
+      if (window.MktoForms2) {
+        @@include('scripts/_removeMarketoCSS.js')
+        MktoForms2.whenReady(function(form) {
+          @@include('scripts/_showMarketoRequiredAsterix.js')
+          @@include('scripts/_removeMarketoFormCSS.js')
+        });
+      }
     }
   </script>
 </body>

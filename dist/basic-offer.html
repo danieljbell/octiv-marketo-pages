@@ -309,6 +309,8 @@
     =========================
     */
     input[type="text"],
+    input[type="tel"],
+    input[type="email"],
     input[type="submit"] {
       width: 100%;
       border: 1px solid #ccc;
@@ -342,6 +344,12 @@
       border: 0;
       font-weight: bold;
       letter-spacing: 0.5px;
+    }
+    .mktoAsterix {
+      visibility: hidden;
+      display: inline-block;
+      width: 0;
+      color: #ed4c06;
     }
 
     /*
@@ -523,59 +531,9 @@
           <p class="font-bump">Thanks for reconnecting with us! Fill in the form, and you’ll be entered to win a $500 Visa gift card as a token of our gratitude.</p>
         </div>
       </div>
-      <form action="">
-        <div class="third">
-          <div>
-            <label for="first_name">First Name</label>
-            <input type="text" id="first_name">
-          </div>
-          <div>
-            <label for="last_name">Last Name</label>
-            <input type="text" id="last_name">
-          </div>
-          <div>
-            <label for="company">Company</label>
-            <input type="text" id="company">
-          </div>
-          <div>
-            <label for="job_title">Title</label>
-            <input type="text" id="job_title">
-          </div>
-          <div>
-            <label for="city">City</label>
-            <input type="text" id="city">
-          </div>
-          <div>
-            <label for="company_size">Company Size</label>
-            <select type="text" id="company_size">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-          </div>
-          <div>
-            <label for="annual_revenue">Annual Revenue</label>
-            <select type="text" id="annual_revenue">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-          </div>
-          <div>
-            <label for="annual_revenue">Annual Revenue</label>
-            <select type="text" id="annual_revenue">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-          </div>
-        </div>
-        <div class="third-only">
-          <div class="centered">
-            <input type="submit">
-          </div>
-        </div>
-      </form>
+      <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
+      <form id="mktoForm_1008"></form>
+      <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", 1008);</script>
     </div>
   </div>
 </section>
@@ -603,10 +561,60 @@
     window.onload = getScripts;
 
     function getScripts() {
+      /*
+      ==============================
+      CURRENT YEAR
+      ==============================
+      */
       var now = new Date();
       var currentYearContainer = document.querySelector('#current-year');
       currentYearContainer.innerText = now.getFullYear();
 
+      if (window.MktoForms2) {
+        /*
+        ==============================
+        REMOVE MARKETO CSS
+        ==============================
+        */
+        var removeNodes = [];
+        removeNodes.push(document.querySelector('#mktoForms2BaseStyle'));
+        removeNodes.push(document.querySelector('#mktoForms2ThemeStyle'));
+        for (var i = 0; i < removeNodes.length; i++) {
+          removeNodes[i].remove();
+        }
+
+        MktoForms2.whenReady(function(form) {
+          /*
+          ========================================
+          SHOW MARKETO ASTERIX FOR REQUIRED FIELDS
+          ========================================
+          */
+          var requiredField = document.querySelectorAll('.mktoRequiredField');
+          for (var i = 0; i < requiredField.length; i++) {
+            var asterix = requiredField[i].querySelector('.mktoAsterix');
+            asterix.style.width = 'initial';
+            asterix.style.marginRight = '0.5rem';
+            asterix.style.visibility = 'visible';
+          }
+
+          /*
+          ========================================
+          REMOVE MARKETO FORM INLINE CSS
+          ========================================
+          */
+          var removeCSSText = [];
+
+          /* get all forms on the page and push to array */
+          var forms = form.getFormElem();
+          for (var i = 0; i < forms.length; i++) {
+            removeCSSText.push(forms[i]);
+          }
+          for (var i = 0; i < removeCSSText.length; i++) {
+            removeCSSText[i].style.cssText = '';
+          }
+
+        });
+      }
     }
   </script>
 </body>
