@@ -1,14 +1,28 @@
-<section class="pull-top">
-  <div class="site-width">
-    <div class="box">
-      <div class="two-third-only">
-        <div class="centered">
-          <p class="font-bump">${form-intro-copy}</p>
+<!--
+    =========================
+    PULL TOP
+    =========================
+    -->
+    <section class="pull-top">
+      <div class="site-width">
+        <div class="box">
+          <div class="two-third-only">
+            <div class="centered">
+              <p class="font-bump">${form-intro-copy}</p>
+            </div>
+          </div>
+          <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <form id="mktoForm_${form-id}"></form>
+          <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id}, function(form) {
+            form.onSuccess(function(values, followUpUrl) {
+                // Get the form's jQuery element and hide it
+                form.getFormElem().hide();
+                var boxContainer = document.querySelector('.pull-top .box');
+                boxContainer.innerHTML = '<div class="two-third-only"><div class="centered font-bump"><h4>${success-headline}</h4><p>${success-sub-headline}</p></div></div>';
+                // Return false to prevent the submission handler from taking the lead to the follow up url
+                return false;
+            });
+          });</script>
         </div>
       </div>
-      <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
-      <form id="mktoForm_${form-id}"></form>
-      <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id});</script>
-    </div>
-  </div>
-</section>
+    </section>

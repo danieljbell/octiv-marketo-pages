@@ -9,6 +9,8 @@
     <meta class="mktoString" id="form-intro-copy" mktoName="Form Intro Copy" default="Form Intro Copy">
     <meta class="mktoString" id="form-id" mktoName="Form ID Number">
     <meta class="mktoString" id="colCount" mktoName="Column Count for Form">
+    <meta class="mktoString" id="success-headline" mktoName="Success Headline" default="Success Headline">
+    <meta class="mktoString" id="success-sub-headline" mktoName="Success Sub Headline" default="Success Sub Headline">
   <!-- End Marekto Variables -->
 
   <!-- Other Meta -->
@@ -549,21 +551,34 @@
       </div>
     </section>
 
+    <!--
+    =========================
+    PULL TOP
+    =========================
+    -->
     <section class="pull-top">
-  <div class="site-width">
-    <div class="box">
-      <div class="two-third-only">
-        <div class="centered">
-          <p class="font-bump">${form-intro-copy}</p>
+      <div class="site-width">
+        <div class="box">
+          <div class="two-third-only">
+            <div class="centered">
+              <p class="font-bump">${form-intro-copy}</p>
+            </div>
+          </div>
+          <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <form id="mktoForm_${form-id}"></form>
+          <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id}, function(form) {
+            form.onSuccess(function(values, followUpUrl) {
+                // Get the form's jQuery element and hide it
+                form.getFormElem().hide();
+                var boxContainer = document.querySelector('.pull-top .box');
+                boxContainer.innerHTML = '<div class="two-third-only"><div class="centered font-bump"><h4>${success-headline}</h4><p>${success-sub-headline}</p></div></div>';
+                // Return false to prevent the submission handler from taking the lead to the follow up url
+                return false;
+            });
+          });</script>
         </div>
       </div>
-      <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
-      <form id="mktoForm_${form-id}"></form>
-      <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id});</script>
-    </div>
-  </div>
-</section>
-
+    </section>
   </main>
   <!--
     =========================
@@ -676,15 +691,10 @@
           for (var i = 0; i < forms.length; i++) {
 
             /* Get the submit button as variable for the form and remove it from the DOM */
-            var formButton = document.querySelector('.mktoButtonRow');
-            formButton.remove();
-
-            /* Add wrapping div with class for styling */
-            var formContent = forms[i].innerHTML;
-            formContent = '<div class="${colCount}">' + formContent + '</div>';
-
-            /* Drop in new form with wrapping div and button */
-            forms[i].innerHTML = formContent + formButton.outerHTML;
+            var formRow = document.querySelectorAll('.mktoFormRow');
+            for (var i = 0; i < formRow.length; i++) {
+              formRow[i].classList.add('${colCount}');
+            }
           }
 
           window.addEventListener('resize', function() {
