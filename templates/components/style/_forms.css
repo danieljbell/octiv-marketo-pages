@@ -6,7 +6,8 @@
     input[type="text"],
     input[type="tel"],
     input[type="email"],
-    input[type="submit"] {
+    input[type="submit"],
+    .mktoButton {
       width: 100%;
       border: 1px solid #ccc;
       border-radius: 3px;
@@ -33,7 +34,8 @@
       font-size: 18px;
       font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
     }
-    input[type="submit"] {
+    input[type="submit"],
+    .mktoButton {
       background-color: #ed4c06;
       color: #fff;
       border: 0;
@@ -45,4 +47,13 @@
       display: inline-block;
       width: 0;
       color: #ed4c06;
+    }
+    .mktoButtonRow {
+      text-align: center;
+    }
+    @media screen and (min-width: 767px) {
+      input[type="submit"],
+      .mktoButton {
+        width: initial;
+      }
     }

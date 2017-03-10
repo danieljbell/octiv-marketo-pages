@@ -35,6 +35,14 @@
         MktoForms2.whenReady(function(form) {
           @@include('scripts/_showMarketoRequiredAsterix.js')
           @@include('scripts/_removeMarketoFormCSS.js')
+          @@include('scripts/_removeMarketoWidths.js')
+          @@include('scripts/_removeMarketoButtonMargin.js')
+          @@include('scripts/_removeMarketoStyleBlock.js')
+          @@include('scripts/_getMarketoRows.js')
+          window.addEventListener('resize', function() {
+            @@include('scripts/_removeMarketoFormCSS.js')
+            @@include('scripts/_removeMarketoWidths.js')
+          });
         });
       }
     }

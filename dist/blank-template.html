@@ -218,7 +218,9 @@
       .third-only > div {
         flex-basis: calc((100%/3) - ((1rem/3) * 4));
       }
-      .third > div:nth-child(3n) {
+      .half > div:nth-child(2n),
+      .third > div:nth-child(3n),
+      .fourth > div:nth-child(4n) {
         margin-right: 0;
       }
       .fourth > div {
