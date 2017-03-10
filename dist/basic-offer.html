@@ -2,16 +2,28 @@
 <html lang="en">
 <head>
 
+  <!-- Marekto Variables -->
+    <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
+    <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
+    <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
+    <meta class="mktoString" id="form-intro-copy" mktoName="Form Intro Copy" default="Form Intro Copy">
+    <meta class="mktoString" id="form-id" mktoName="Form ID Number">
+    <meta class="mktoString" id="colCount" mktoName="Column Count for Form">
+  <!-- End Marekto Variables -->
+
   <!-- Other Meta -->
-    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" sizes="32x32" href="http://lp.octiv.com/rs/625-MXY-689/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="http://lp.octiv.com/rs/625-MXY-689/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://lp.octiv.com/rs/625-MXY-689/images/favicon-16x16.png">
   <!-- /Other Meta -->
 
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" type="text/css" />
 
-  <title>Document</title>
+  <title>${page-headline}</title>
   <style>
     /*
     =========================
@@ -391,6 +403,7 @@
     .header-number-container {
       display: flex;
       justify-content: center;
+      font-size: 1.25em;
     }
     .header-number-container img {
       margin-right: 0.5rem;
@@ -517,7 +530,7 @@
             <a href="https://octiv.com" class="site-logo"></a>
           </div>
           <div>
-            <a href="tel:844-936-2848" class="header-number-container"><img src="http://lp.octiv.com/rs/625-MXY-689/images/phone.png" alt=""><strong>844.936.2848</strong></a>
+            <a href="tel:844-936-2848" class="header-number-container" title="Give Us A Call!"><img src="http://lp.octiv.com/rs/625-MXY-689/images/phone.png" alt=""><strong>844.936.2848</strong></a>
           </div>
         </div>
       </div>
@@ -529,10 +542,10 @@
     HERO WITH PULL
     =========================
     -->
-    <section class="hero hero-pulled" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(//fillmurray.com/1920/445);">
+    <section class="hero hero-pulled" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${page-hero-image});">
       <div class="site-width">
-        <h1>Thanks {{lead.First Name}}</h1>
-        <h5>We’re glad you’re here!</h5>
+        <h1>${page-headline}</h1>
+        <h5>${page-sub-headline}</h5>
       </div>
     </section>
 
@@ -541,12 +554,12 @@
     <div class="box">
       <div class="two-third-only">
         <div class="centered">
-          <p class="font-bump">Thanks for reconnecting with us! Fill in the form, and you’ll be entered to win a $500 Visa gift card as a token of our gratitude.</p>
+          <p class="font-bump">${form-intro-copy}</p>
         </div>
       </div>
       <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
-      <form id="mktoForm_1109"></form>
-      <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", 1109);</script>
+      <form id="mktoForm_${form-id}"></form>
+      <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id});</script>
     </div>
   </div>
 </section>
@@ -668,7 +681,7 @@
 
             /* Add wrapping div with class for styling */
             var formContent = forms[i].innerHTML;
-            formContent = '<div class="half">' + formContent + '</div>';
+            formContent = '<div class="${colCount}">' + formContent + '</div>';
 
             /* Drop in new form with wrapping div and button */
             forms[i].innerHTML = formContent + formButton.outerHTML;

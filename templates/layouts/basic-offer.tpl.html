@@ -2,11 +2,20 @@
 <html lang="en">
 <head>
 
+  <!-- Marekto Variables -->
+    <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
+    <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
+    <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
+    <meta class="mktoString" id="form-intro-copy" mktoName="Form Intro Copy" default="Form Intro Copy">
+    <meta class="mktoString" id="form-id" mktoName="Form ID Number">
+    <meta class="mktoString" id="colCount" mktoName="Column Count for Form">
+  <!-- End Marekto Variables -->
+
   @@include('meta/_other.html')
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" type="text/css" />
 
-  <title>Document</title>
+  <title>${page-headline}</title>
   <style>
     @@include('style/_base.css')
     @@include('style/_grid.css')

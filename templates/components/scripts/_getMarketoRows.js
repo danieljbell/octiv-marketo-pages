@@ -12,7 +12,7 @@
 
             /* Add wrapping div with class for styling */
             var formContent = forms[i].innerHTML;
-            formContent = '<div class="half">' + formContent + '</div>';
+            formContent = '<div class="${colCount}">' + formContent + '</div>';
 
             /* Drop in new form with wrapping div and button */
             forms[i].innerHTML = formContent + formButton.outerHTML;

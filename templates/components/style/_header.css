@@ -24,6 +24,7 @@
     .header-number-container {
       display: flex;
       justify-content: center;
+      font-size: 1.25em;
     }
     .header-number-container img {
       margin-right: 0.5rem;
