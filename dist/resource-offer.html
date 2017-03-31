@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Marekto Variables -->
+    <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
+    <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
+    <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
+    <meta class="mktoString" id="form-intro-copy" mktoName="Form Intro Copy" default="Form Intro Copy">
+    <meta class="mktoString" id="form-id" mktoName="Form ID Number">
+    <meta class="mktoString" id="colCount" mktoName="Column Count for Form">
+    <meta class="mktoString" id="success-headline" mktoName="Success Headline" default="Success Headline">
+    <meta class="mktoString" id="success-sub-headline" mktoName="Success Sub Headline" default="Success Sub Headline">
+  <!-- End Marekto Variables -->
+
+  <!-- Other Meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" sizes="32x32" href="http://lp.octiv.com/rs/625-MXY-689/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="http://lp.octiv.com/rs/625-MXY-689/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://lp.octiv.com/rs/625-MXY-689/images/favicon-16x16.png">
+  <!-- /Other Meta -->
+
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" type="text/css" />
+
+  <title>${page-headline}</title>
+  <style>
+    /*
+    =========================
+    RESET & UTILITY CLASSES
+    =========================
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 300;
+      color: #000;
+      text-align: left;
+    }
+    section {
+      padding: 3rem 0;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
+    .site-width {
+      width: calc(100% - 2rem);
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .centered {
+      text-align: center;
+    }
+    @media screen and (min-width: 767px) {
+      html, body {
+        font-size: 18px;
+      }
+      section {
+        padding: 6rem 0;
+      }
+      .site-width {
+        width: calc(100% - 4rem);
+      }
+    }
+
+
+    /*
+    =========================
+    TYPOGRAPHY
+    =========================
+    */
+    h1, h2, h3, h4, h5, h6, p, ul {
+      margin-bottom: 1rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 0.8;
+    }
+    h1 {
+      font-size: 1.75em;
+    }
+    h2 {
+      font-size: 1.6em;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-size: 1.45em;
+      color: #ed4c06;
+    }
+    h4 {
+      font-size: 1.3em;
+    }
+    h5 {
+      font-size: 1.15em;
+    }
+    h6 {
+      font-size: 1em;
+    }
+    ul li {
+      margin-left: 1rem;
+    }
+    a {
+      color: #ed4c06;
+      text-decoration: none;
+    }
+    a[href^="tel"] {
+      color: #000;
+    }
+    blockquote {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#fff,#f0f0f0);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 1rem;
+      font-style: italic;
+      font-size: 1.15em;
+      line-height: 1.2;
+    }
+    blockquote p {
+      margin-top: 1rem;
+      font-style: initial;
+      font-size: 0.85em;
+      opacity: 0.65;
+    }
+    blockquote strong, blockquote b,
+    blockquote em, blockquote i {
+      display: block;
+    }
+    blockquote strong, blockquote b {
+      font-size: 1.25em;
+    }
+    .font-bump {
+      font-size: 1.15em;
+    }
+    @media screen and (min-width: 767px) {
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.8em;
+      }
+      h3 {
+        font-size: 1.6em;
+      }
+      h4 {
+        font-size: 1.4em;
+      }
+      h5 {
+        font-size: 1.2em;
+      }
+      h6 {
+        font-size: 1em;
+      }
+      .font-bump {
+        font-size: 1.25em;
+      }
+    }
+
+    /*
+    ==============================
+    GRID
+    ==============================
+    */
+    .two-third,
+    .half,
+    .third,
+    .fourth,
+    .two-third-reversed,
+    .two-third-stack,
+    .two-third-only,
+    .half-stack,
+    .half-only,
+    .third-only {
+      display: flex;
+    	flex-wrap: wrap;
+      align-items: center;
+    }
+    .two-third-only,
+    .half-only,
+    .third-only {
+      justify-content: center;
+    }
+    .two-third > div,
+    .half > div,
+    .third > div,
+    .fourth > div,
+    .two-third-reversed > div,
+    .two-third-stack > div,
+    .two-third-only > div,
+    .half-stack > div,
+    .half-only > div,
+    .third-only > div {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    @media screen and (min-width: 767px) {
+      .two-third > div,
+      .half > div,
+      .third > div,
+      .fourth > div,
+      .two-third-reversed > div,
+      .two-third-stack > div,
+      .half-stack > div {
+        margin-bottom: 2rem;
+        margin-right: 2rem;
+      }
+      .two-third > div:last-child,
+      .half > div:last-child,
+      .third > div:last-child,
+      .fourth > div:last-child,
+      .two-third-reversed > div:last-child,
+      .two-third-stack > div:first-child,
+      .half-stack > div:first-child {
+        margin-right: 0rem;
+      }
+      .half > div,
+      .half-stack > div,
+      .half-only > div {
+        flex-basis: calc((100%/2) - 1rem);
+      }
+      .third > div,
+      .third-only > div {
+        flex-basis: calc((100%/3) - ((1rem/3) * 4));
+      }
+      .half > div:nth-child(2n),
+      .third > div:nth-child(3n),
+      .fourth > div:nth-child(4n) {
+        margin-right: 0;
+      }
+      .fourth > div {
+        flex-basis: calc((100%/4) - 1.5rem);
+      }
+      .two-third > div:nth-child(2n-1),
+      .two-third-stack > div:nth-child(2n-1),
+      .two-third-only > div {
+        flex-basis: calc(((100%/3) * 2) - 1rem);
+      }
+      .two-third > div:nth-child(2n),
+      .two-third-stack > div:nth-child(2n) {
+        flex-basis: calc((100%/3) - 1rem);
+      }
+      .two-third-reversed > div:nth-child(2n-1) {
+        flex-basis: calc((100%/3) - 1rem);
+      }
+      .two-third-reversed > div:nth-child(2n) {
+        flex-basis: calc(((100%/3) * 2) - 1rem);
+      }
+      .two-third-stack > div:nth-child(2n-1),
+      .half-stack > div:nth-child(2n-1) {
+        order: 2;
+      }
+    }
+    /* OVERRIDES */
+    form .two-third > div,
+    form .half > div,
+    form .third > div,
+    form .fourth > div {
+      margin-bottom: 1rem;
+    }
+    form .two-third-only > div,
+    form .half-only > div,
+    form .third-only > div {
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    /*
+    =========================
+    BUTTONS
+    =========================
+    */
+    [class^="btn"] {
+      display: inline-block;
+      color: #fff;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 200ms ease-out;
+    }
+    .btn-primary {
+      background-color: #ed4c06;
+      letter-spacing: 0.5px;
+    }
+    .btn-primary:hover {
+      background-color: #fa7c45;
+    }
+    .btn-outline {
+      border: 1px solid #ed4c06;
+      color: #ed4c06;
+    }
+    .btn-outline:hover {
+      background-color: #ed4c06;
+      color: #fff;
+    }
+    .btn-arrow {
+      box-shadow: inset 0 -2px 0 #42b0d6;
+      color: #000;
+      padding: 0;
+      border-radius: 0;
+    }
+    .btn-arrow:after {
+      content: ">";
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+    .btn-arrow:hover {
+      box-shadow: inset 0 -22px 0 #42b0d6;
+      color: #fff;
+    }
+
+    /*
+    =========================
+    FORMS
+    =========================
+    */
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="submit"],
+    .mktoButton {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    }
+    label {
+      font-weight: bold;
+      font-size: 0.85em;
+    }
+    select {
+      width: 100%;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      background-image: url(http://lp.octiv.com/rs/625-MXY-689/images/select-arrow.svg);
+      background-repeat: no-repeat;
+  	  background-position: calc(100% - 1rem);
+      background-size: 20px;
+      padding: 0.5rem;
+  	  -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-size: 18px;
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    }
+    input[type="submit"],
+    .mktoButton {
+      background-color: #ed4c06;
+      color: #fff;
+      border: 0;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .mktoAsterix {
+      visibility: hidden;
+      display: inline-block;
+      width: 0;
+      color: #ed4c06;
+    }
+    .mktoButtonRow {
+      text-align: center;
+    }
+    @media screen and (min-width: 767px) {
+      input[type="submit"],
+      .mktoButton {
+        width: initial;
+      }
+    }
+
+    /*
+    ==============================
+    HEADER
+    ==============================
+    */
+    header {
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    }
+    header .half div {
+      margin-bottom: 0;
+      text-align: center;
+    }
+    header .half div:last-child {
+      margin-bottom: 2rem;
+    }
+    .site-logo {
+      background-image: url(http://lp.octiv.com/rs/625-MXY-689/images/Octiv-Logo-Color.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: 45px;
+      margin: 2rem 0 1rem;
+    }
+    .header-number-container {
+      display: flex;
+      justify-content: center;
+      font-size: 1.25em;
+    }
+    .header-number-container img {
+      margin-right: 0.5rem;
+      height: 25px;
+    }
+    @media screen and (min-width: 767px) {
+      header .half div {
+        text-align: initial;
+      }
+      header .half div:last-child {
+        text-align: right;
+        margin-bottom: 0;
+      }
+      .site-logo {
+        background-position: initial;
+        margin: 2rem 0 2rem;
+      }
+      .header-number-container {
+        justify-content: flex-end;
+      }
+    }
+
+    /*
+    =========================
+    HERO
+    =========================
+    */
+    .hero {
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: #fff;
+      padding: 3rem 0;
+      box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+    }
+    .hero-pulled {
+      padding: 3rem 0 6rem;
+    }
+    .hero h1 {
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.75);
+    }
+    .hero h5 {
+      font-weight: normal;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+      margin-bottom: 0;
+    }
+    .hero-cta h3 {
+      color: #fff;
+      font-weight: normal;
+      font-style: italic;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+    }
+    .hero-cta h5 {
+      margin-bottom: 2rem;
+    }
+    @media screen and (min-width: 767px) {
+      .hero {
+        padding: 6rem 0;
+      }
+      .hero-pulled {
+        padding: 6rem 0 9rem;
+      }
+    }
+
+    /*
+    =========================
+    BOX
+    =========================
+    */
+    .box {
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#fff, #f0f0f0);
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .box.white {
+      background-color: #fff;
+      background-image: initial;
+      border: 0;
+      box-shadow: none;
+    }
+    .pull-top,
+    .two-third-pull-top {
+      margin-top: -6rem;
+      margin-bottom: -2rem;
+    }
+    .two-third-pull-top .two-third {
+      align-items: flex-start;
+    }
+    @media screen and (min-width: 767px) {
+      .box {
+        padding: 2rem;
+      }
+      .pull-top,
+      .two-third-pull-top {
+        margin-top: -10rem;
+        margin-bottom: -4rem;
+      }
+    }
+
+    /*
+    ==============================
+    FOOTER
+    ==============================
+    */
+    footer {
+      text-align: center;
+      font-size: 0.85em;
+      color: rgba(0,0,0,0.65);
+    }
+    footer .site-logo {
+      height: 30px;
+      margin: 0;
+    }
+    @media screen and (min-width: 767px) {
+      footer .half > div:last-child {
+        text-align: right;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!--
+    =========================
+    STANDARD HEADER
+    =========================
+    -->
+    <header>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>
+            <a href="tel:844-936-2848" class="header-number-container" title="Give Us A Call!"><img src="http://lp.octiv.com/rs/625-MXY-689/images/phone.png" alt=""><strong>844.936.2848</strong></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <main>
+    <!--
+    =========================
+    HERO WITH PULL
+    =========================
+    -->
+    <section class="hero hero-pulled" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${page-hero-image});">
+      <div class="site-width">
+        <h1>${page-headline}</h1>
+        <h5>${page-sub-headline}</h5>
+      </div>
+    </section>
+
+    <!--
+    =========================
+    TWO THIRD PULL TOP
+    =========================
+    -->
+    <section class="two-third-pull-top">
+      <div class="site-width">
+        <div class="two-third">
+          <div class="box white">
+            <p>Manufacturing companies have the same challenges as other companies – drafting contracts and proposals, creating and sending offer letters and invoices – but at a much larger scale. Those high-complexity document workflows span teams and departments, and often suffer from inefficient processes and systemic bottlenecks.</p>
+            <p>Companies like General Electric and Siemens choose Octiv to maximize the value of Unified Document Workflows and experience marked improvements in overall efficiency. By building and connecting document workflows that connect systems and data for a better end-user experience, organizations have positioned documents for sales, legal, human resources, procurement and sourcing to meet a wider range of challenges in advanced manufacturing.</p>
+            <p><strong>Are you ready for a document workflow that actually works for manufacturing?</strong> Download our whitepaper and find out how Octiv can help you save time and do business faster.</p>
+            <section style="padding-top: 3rem; padding-bottom: 0;">
+              <h3 class="centered">Proven Results for Global Enterprises</h3>
+              <div class="third">
+                <div class="centered"><img src="//fillmurray.com/100/100" alt="GE"></div>
+                <div class="centered"><img src="//fillmurray.com/100/100" alt="Siemens"></div>
+                <div class="centered"><img src="//fillmurray.com/100/100" alt="Intelligrated"></div>
+              </div>
+            </section>
+          </div>
+          <div class="box">
+            <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
+            <form id="mktoForm_1008"></form>
+            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", 1008, function(form) {
+              form.onSuccess(function(values, followUpUrl) {
+                  // Get the form's jQuery element and hide it
+                  form.getFormElem().hide();
+                  var boxContainer = document.querySelector('.two-third-pull-top .box:nth-child(2)');
+                  boxContainer.innerHTML = '<div class="two-third-only"><div class="centered font-bump"><h4>${success-headline}</h4><p>${success-sub-headline}</p></div></div>';
+                  // Return false to prevent the submission handler from taking the lead to the follow up url
+                  return false;
+              });
+            });</script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!--
+    =========================
+    STANDARD FOOTER
+    =========================
+    -->
+    <footer>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>
+            &copy; <span id="current-year">2017</span> Octiv, Inc. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    window.onload = getScripts;
+
+    function getScripts() {
+      /*
+      ==============================
+      CURRENT YEAR
+      ==============================
+      */
+      var now = new Date();
+      var currentYearContainer = document.querySelector('#current-year');
+      currentYearContainer.innerText = now.getFullYear();
+
+      if (window.MktoForms2) {
+        /*
+        ==============================
+        REMOVE MARKETO CSS
+        ==============================
+        */
+        var removeNodes = [];
+        removeNodes.push(document.querySelector('#mktoForms2BaseStyle'));
+        removeNodes.push(document.querySelector('#mktoForms2ThemeStyle'));
+        for (var i = 0; i < removeNodes.length; i++) {
+          removeNodes[i].remove();
+        }
+
+        MktoForms2.whenReady(function(form) {
+          /*
+          ========================================
+          SHOW MARKETO ASTERIX FOR REQUIRED FIELDS
+          ========================================
+          */
+          var requiredField = document.querySelectorAll('.mktoRequiredField');
+          for (var i = 0; i < requiredField.length; i++) {
+            var asterix = requiredField[i].querySelector('.mktoAsterix');
+            asterix.style.width = 'initial';
+            asterix.style.marginRight = '0.5rem';
+            asterix.style.visibility = 'visible';
+          }
+
+          /*
+          ==============================
+          REMOVE MARKETO FORM INLINE CSS
+          ==============================
+          */
+          var removeCSSText = [];
+
+          /* get all forms on the page and push to array */
+          var forms = form.getFormElem();
+          for (var i = 0; i < forms.length; i++) {
+            removeCSSText.push(forms[i]);
+          }
+          for (var i = 0; i < removeCSSText.length; i++) {
+            removeCSSText[i].style.cssText = '';
+          }
+
+          /*
+          ========================================
+          REMOVE MARKETO WIDTHS
+          ========================================
+          */
+          for (var i = 0; i < forms.length; i++) {
+            var elemHasWidth = forms[i].querySelectorAll('.mktoHasWidth');
+            for (var i = 0; i < elemHasWidth.length; i++) {
+              elemHasWidth[i].style.width = '100%';
+            }
+          }
+
+          /*
+          ========================================
+          REMOVE MARKETO WIDTHS
+          ========================================
+          */
+          document.querySelector('.mktoButtonWrap').style.cssText = "";
+
+          /*
+          ==========================
+          REMOVE MARKETO STYLE BLOCK
+          ==========================
+          */
+          for (var i = 0; i < forms.length; i++) {
+            forms[i].querySelector('style').remove();
+          }
+
+          /*
+          ========================
+          GET MARKETO ROWS TO WRAP
+          ========================
+          */
+          /* Loop thru each form on the page */
+          for (var i = 0; i < forms.length; i++) {
+
+            /* Get the submit button as variable for the form and remove it from the DOM */
+            var formRow = document.querySelectorAll('.mktoFormRow');
+            for (var i = 0; i < formRow.length; i++) {
+              formRow[i].classList.add('${colCount}');
+            }
+          }
+
+          window.addEventListener('resize', function() {
+            /*
+          ==============================
+          REMOVE MARKETO FORM INLINE CSS
+          ==============================
+          */
+          var removeCSSText = [];
+
+          /* get all forms on the page and push to array */
+          var forms = form.getFormElem();
+          for (var i = 0; i < forms.length; i++) {
+            removeCSSText.push(forms[i]);
+          }
+          for (var i = 0; i < removeCSSText.length; i++) {
+            removeCSSText[i].style.cssText = '';
+          }
+
+            /*
+          ========================================
+          REMOVE MARKETO WIDTHS
+          ========================================
+          */
+          for (var i = 0; i < forms.length; i++) {
+            var elemHasWidth = forms[i].querySelectorAll('.mktoHasWidth');
+            for (var i = 0; i < elemHasWidth.length; i++) {
+              elemHasWidth[i].style.width = '100%';
+            }
+          }
+
+          });
+        });
+      }
+    }
+  </script>
+</body>
+</html>

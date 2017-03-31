@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Marekto Variables -->
+    <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
+    <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
+    <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
+    <meta class="mktoString" id="form-intro-copy" mktoName="Form Intro Copy" default="Form Intro Copy">
+    <meta class="mktoString" id="form-id" mktoName="Form ID Number">
+    <meta class="mktoString" id="colCount" mktoName="Column Count for Form">
+    <meta class="mktoString" id="success-headline" mktoName="Success Headline" default="Success Headline">
+    <meta class="mktoString" id="success-sub-headline" mktoName="Success Sub Headline" default="Success Sub Headline">
+  <!-- End Marekto Variables -->
+
+  @@include('meta/_other.html')
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" type="text/css" />
+
+  <title>${page-headline}</title>
+  <style>
+    @@include('style/_base.css')
+    @@include('style/_grid.css')
+    @@include('style/_buttons.css')
+    @@include('style/_forms.css')
+    @@include('style/_header.css')
+    @@include('style/_hero.css')
+    @@include('style/_box.css')
+    @@include('style/_footer.css')
+  </style>
+</head>
+<body>
+  @@include('header/_standard-header.html')
+  <main>
+    @@include('hero/_hero-with-pull.html')
+    @@include('box/_two-third-pull-top.html')
+  </main>
+  @@include('footer/_standard-footer.html')
+  <script>
+    window.onload = getScripts;
+
+    function getScripts() {
+      @@include('scripts/_current-year.js')
+      if (window.MktoForms2) {
+        @@include('scripts/_removeMarketoCSS.js')
+        MktoForms2.whenReady(function(form) {
+          @@include('scripts/_showMarketoRequiredAsterix.js')
+          @@include('scripts/_removeMarketoFormCSS.js')
+          @@include('scripts/_removeMarketoWidths.js')
+          @@include('scripts/_removeMarketoButtonMargin.js')
+          @@include('scripts/_removeMarketoStyleBlock.js')
+          @@include('scripts/_getMarketoRows.js')
+          window.addEventListener('resize', function() {
+            @@include('scripts/_removeMarketoFormCSS.js')
+            @@include('scripts/_removeMarketoWidths.js')
+          });
+        });
+      }
+    }
+  </script>
+</body>
+</html>
