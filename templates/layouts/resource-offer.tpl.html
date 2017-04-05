@@ -6,11 +6,8 @@
     <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
     <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
     <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
-    <meta class="mktoString" id="form-intro-copy" mktoName="Form Intro Copy" default="Form Intro Copy">
     <meta class="mktoString" id="form-id" mktoName="Form ID Number">
-    <meta class="mktoString" id="colCount" mktoName="Column Count for Form">
-    <meta class="mktoString" id="success-headline" mktoName="Success Headline" default="Success Headline">
-    <meta class="mktoString" id="success-sub-headline" mktoName="Success Sub Headline" default="Success Sub Headline">
+    <meta class="mktoBoolean" id="cover-image-boolean" mktoName="Is There A Cover Image?" default="false" true_value="block" false_value="none" false_value_name="Hide" true_value_name="Show">
   <!-- End Marekto Variables -->
 
   @@include('meta/_other.html')
@@ -27,6 +24,16 @@
     @@include('style/_hero.css')
     @@include('style/_box.css')
     @@include('style/_footer.css')
+    .mktoGen.mktoImg {
+      float: right;
+    }
+    #cover-image {
+      display: ${cover-image-boolean};
+      max-width: 275px;
+      margin-left: 25px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+      border: 1px solid #e4e4e4;
+    }
   </style>
 </head>
 <body>
@@ -49,7 +56,9 @@
           @@include('scripts/_removeMarketoWidths.js')
           @@include('scripts/_removeMarketoButtonMargin.js')
           @@include('scripts/_removeMarketoStyleBlock.js')
-          @@include('scripts/_getMarketoRows.js')
+          @@include('scripts/_removeMarketoOffsets.js')
+          @@include('scripts/_removeMarketoClears.js')
+          @@include('scripts/_formatNewsletter.js')
           window.addEventListener('resize', function() {
             @@include('scripts/_removeMarketoFormCSS.js')
             @@include('scripts/_removeMarketoWidths.js')

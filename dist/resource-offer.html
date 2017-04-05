@@ -6,11 +6,8 @@
     <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
     <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
     <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
-    <meta class="mktoString" id="form-intro-copy" mktoName="Form Intro Copy" default="Form Intro Copy">
     <meta class="mktoString" id="form-id" mktoName="Form ID Number">
-    <meta class="mktoString" id="colCount" mktoName="Column Count for Form">
-    <meta class="mktoString" id="success-headline" mktoName="Success Headline" default="Success Headline">
-    <meta class="mktoString" id="success-sub-headline" mktoName="Success Sub Headline" default="Success Sub Headline">
+    <meta class="mktoBoolean" id="cover-image-boolean" mktoName="Is There A Cover Image?" default="false" true_value="block" false_value="none" false_value_name="Hide" true_value_name="Show">
   <!-- End Marekto Variables -->
 
   <!-- Other Meta -->
@@ -528,6 +525,16 @@
       }
     }
 
+    .mktoGen.mktoImg {
+      float: right;
+    }
+    #cover-image {
+      display: ${cover-image-boolean};
+      max-width: 275px;
+      margin-left: 25px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+      border: 1px solid #e4e4e4;
+    }
   </style>
 </head>
 <body>
@@ -571,31 +578,13 @@
       <div class="site-width">
         <div class="two-third">
           <div class="box white">
-            <p>Manufacturing companies have the same challenges as other companies – drafting contracts and proposals, creating and sending offer letters and invoices – but at a much larger scale. Those high-complexity document workflows span teams and departments, and often suffer from inefficient processes and systemic bottlenecks.</p>
-            <p>Companies like General Electric and Siemens choose Octiv to maximize the value of Unified Document Workflows and experience marked improvements in overall efficiency. By building and connecting document workflows that connect systems and data for a better end-user experience, organizations have positioned documents for sales, legal, human resources, procurement and sourcing to meet a wider range of challenges in advanced manufacturing.</p>
-            <p><strong>Are you ready for a document workflow that actually works for manufacturing?</strong> Download our whitepaper and find out how Octiv can help you save time and do business faster.</p>
-            <section style="padding-top: 3rem; padding-bottom: 0;">
-              <h3 class="centered">Proven Results for Global Enterprises</h3>
-              <div class="third">
-                <div class="centered"><img src="//fillmurray.com/100/100" alt="GE"></div>
-                <div class="centered"><img src="//fillmurray.com/100/100" alt="Siemens"></div>
-                <div class="centered"><img src="//fillmurray.com/100/100" alt="Intelligrated"></div>
-              </div>
-            </section>
+            <img class="mktoImg" id="cover-image" mktoName="Cover Image">
+            <div class="mktoText" id="page-body-copy" mktoName="Page Body Copy">Insert Page Body Copy Here</div>
           </div>
           <div class="box">
             <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
-            <form id="mktoForm_1008"></form>
-            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", 1008, function(form) {
-              form.onSuccess(function(values, followUpUrl) {
-                  // Get the form's jQuery element and hide it
-                  form.getFormElem().hide();
-                  var boxContainer = document.querySelector('.two-third-pull-top .box:nth-child(2)');
-                  boxContainer.innerHTML = '<div class="two-third-only"><div class="centered font-bump"><h4>${success-headline}</h4><p>${success-sub-headline}</p></div></div>';
-                  // Return false to prevent the submission handler from taking the lead to the follow up url
-                  return false;
-              });
-            });</script>
+            <form id="mktoForm_${form-id}"></form>
+            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id});</script>
           </div>
         </div>
       </div>
@@ -706,18 +695,42 @@
 
           /*
           ========================
-          GET MARKETO ROWS TO WRAP
+          REMOVE MARKETO OFFSETS
           ========================
           */
-          /* Loop thru each form on the page */
-          for (var i = 0; i < forms.length; i++) {
-
-            /* Get the submit button as variable for the form and remove it from the DOM */
-            var formRow = document.querySelectorAll('.mktoFormRow');
-            for (var i = 0; i < formRow.length; i++) {
-              formRow[i].classList.add('${colCount}');
+          (function() {
+            var offsets = document.querySelectorAll('.mktoOffset');
+            for (var i = 0; i < offsets.length; i++) {
+              offsets[i].remove();
             }
-          }
+          })();
+
+          /*
+          ========================
+          REMOVE MARKETO CLEARS
+          ========================
+          */
+          (function() {
+            var clears = document.querySelectorAll('.mktoClear');
+            for (var i = 0; i < clears.length; i++) {
+              clears[i].remove();
+            }
+          })();
+
+          /*
+          ========================
+          FORMAT NEWSLETTER
+          ========================
+          */
+          (function() {
+            var newsletterWrap = document.querySelector('label[for="subscriptionNewsletter"]').parentElement;
+            newsletterWrap.querySelector('.mktoGutter').remove();
+            newsletterWrap.style.display = 'flex';
+            newsletterWrap.style.flexDirection = 'row-reverse';
+            newsletterWrap.querySelector('.mktoCheckboxList').style.flexShrink = '12';
+            newsletterWrap.style.paddingTop = '0.5rem';
+            newsletterWrap.style.paddingBottom = '0.5rem';
+          })();
 
           window.addEventListener('resize', function() {
             /*

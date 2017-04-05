@@ -7,31 +7,13 @@
       <div class="site-width">
         <div class="two-third">
           <div class="box white">
-            <p>Manufacturing companies have the same challenges as other companies – drafting contracts and proposals, creating and sending offer letters and invoices – but at a much larger scale. Those high-complexity document workflows span teams and departments, and often suffer from inefficient processes and systemic bottlenecks.</p>
-            <p>Companies like General Electric and Siemens choose Octiv to maximize the value of Unified Document Workflows and experience marked improvements in overall efficiency. By building and connecting document workflows that connect systems and data for a better end-user experience, organizations have positioned documents for sales, legal, human resources, procurement and sourcing to meet a wider range of challenges in advanced manufacturing.</p>
-            <p><strong>Are you ready for a document workflow that actually works for manufacturing?</strong> Download our whitepaper and find out how Octiv can help you save time and do business faster.</p>
-            <section style="padding-top: 3rem; padding-bottom: 0;">
-              <h3 class="centered">Proven Results for Global Enterprises</h3>
-              <div class="third">
-                <div class="centered"><img src="//fillmurray.com/100/100" alt="GE"></div>
-                <div class="centered"><img src="//fillmurray.com/100/100" alt="Siemens"></div>
-                <div class="centered"><img src="//fillmurray.com/100/100" alt="Intelligrated"></div>
-              </div>
-            </section>
+            <img class="mktoImg" id="cover-image" mktoName="Cover Image">
+            <div class="mktoText" id="page-body-copy" mktoName="Page Body Copy">Insert Page Body Copy Here</div>
           </div>
           <div class="box">
             <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
-            <form id="mktoForm_1008"></form>
-            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", 1008, function(form) {
-              form.onSuccess(function(values, followUpUrl) {
-                  // Get the form's jQuery element and hide it
-                  form.getFormElem().hide();
-                  var boxContainer = document.querySelector('.two-third-pull-top .box:nth-child(2)');
-                  boxContainer.innerHTML = '<div class="two-third-only"><div class="centered font-bump"><h4>${success-headline}</h4><p>${success-sub-headline}</p></div></div>';
-                  // Return false to prevent the submission handler from taking the lead to the follow up url
-                  return false;
-              });
-            });</script>
+            <form id="mktoForm_${form-id}"></form>
+            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id});</script>
           </div>
         </div>
       </div>
