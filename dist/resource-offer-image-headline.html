@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
 
+  <!-- Marekto Variables -->
+    <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
+    <meta class="mktoString" id="page-hero-headline-image" mktoName="Page Hero Headline Image" default="//fillmurray.com/600/200">
+    <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
+    <meta class="mktoString" id="form-id" mktoName="Form ID Number">
+  <!-- End Marekto Variables -->
+
   <!-- Other Meta -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,7 +21,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" type="text/css" />
 
-  <title>Document</title>
+  <title>${page-headline}</title>
   <style>
     /*
     =========================
@@ -265,6 +272,51 @@
 
     /*
     =========================
+    BUTTONS
+    =========================
+    */
+    [class^="btn"] {
+      display: inline-block;
+      color: #fff;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 200ms ease-out;
+    }
+    .btn-primary {
+      background-color: #ed4c06;
+      letter-spacing: 0.5px;
+    }
+    .btn-primary:hover {
+      background-color: #fa7c45;
+    }
+    .btn-outline {
+      border: 1px solid #ed4c06;
+      color: #ed4c06;
+    }
+    .btn-outline:hover {
+      background-color: #ed4c06;
+      color: #fff;
+    }
+    .btn-arrow {
+      box-shadow: inset 0 -2px 0 #42b0d6;
+      color: #000;
+      padding: 0;
+      border-radius: 0;
+    }
+    .btn-arrow:after {
+      content: ">";
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+    .btn-arrow:hover {
+      box-shadow: inset 0 -22px 0 #42b0d6;
+      color: #fff;
+    }
+
+    /*
+    =========================
     FORMS
     =========================
     */
@@ -324,51 +376,6 @@
     }
 
     /*
-    =========================
-    BUTTONS
-    =========================
-    */
-    [class^="btn"] {
-      display: inline-block;
-      color: #fff;
-      border-radius: 5px;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 200ms ease-out;
-    }
-    .btn-primary {
-      background-color: #ed4c06;
-      letter-spacing: 0.5px;
-    }
-    .btn-primary:hover {
-      background-color: #fa7c45;
-    }
-    .btn-outline {
-      border: 1px solid #ed4c06;
-      color: #ed4c06;
-    }
-    .btn-outline:hover {
-      background-color: #ed4c06;
-      color: #fff;
-    }
-    .btn-arrow {
-      box-shadow: inset 0 -2px 0 #42b0d6;
-      color: #000;
-      padding: 0;
-      border-radius: 0;
-    }
-    .btn-arrow:after {
-      content: ">";
-      display: inline-block;
-      margin-left: 0.5rem;
-    }
-    .btn-arrow:hover {
-      box-shadow: inset 0 -22px 0 #42b0d6;
-      color: #fff;
-    }
-
-    /*
     ==============================
     HEADER
     ==============================
@@ -418,6 +425,90 @@
     }
 
     /*
+    =========================
+    HERO
+    =========================
+    */
+    .hero {
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: #fff;
+      padding: 3rem 0;
+      box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+    }
+    .hero-pulled {
+      padding: 3rem 0 6rem;
+    }
+    .hero-with-image img {
+      width: 100%;
+      max-width: 700px;
+    }
+    .hero h1 {
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.75);
+    }
+    .hero h5 {
+      font-weight: normal;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+      margin-bottom: 0;
+    }
+    .hero-cta h3 {
+      color: #fff;
+      font-weight: normal;
+      font-style: italic;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+    }
+    .hero-cta h5 {
+      margin-bottom: 2rem;
+    }
+    @media screen and (min-width: 767px) {
+      .hero {
+        padding: 6rem 0;
+      }
+      .hero-pulled {
+        padding: 6rem 0 9rem;
+      }
+    }
+
+    /*
+    =========================
+    BOX
+    =========================
+    */
+    .box {
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#fff, #f0f0f0);
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .box.white {
+      background-color: #fff;
+      background-image: initial;
+      border: 0;
+      box-shadow: none;
+    }
+    .pull-top,
+    .two-third-pull-top {
+      margin-top: -6rem;
+      margin-bottom: -2rem;
+    }
+    .two-third-pull-top .two-third {
+      align-items: flex-start;
+    }
+    @media screen and (min-width: 767px) {
+      .box {
+        padding: 2rem;
+      }
+      .pull-top,
+      .two-third-pull-top {
+        margin-top: -10rem;
+        margin-bottom: -4rem;
+      }
+    }
+
+    /*
     ==============================
     FOOTER
     ==============================
@@ -437,6 +528,25 @@
       }
     }
 
+    .mktoForm .mktoGutter {
+      height: 0.5em !important;
+    }
+    .mktoForm .mktoLabel {
+      width: 100% !important;
+    }
+    .mktoForm .mktoFormCol {
+      width: 100% !important;
+    }
+    .mktoForm .mktoHasWidth {
+      width: 100% !important;
+    }
+    .mktoForm .mktoAsterix {
+      float: left !important;
+      padding-left: 0 !important; 
+    }
+    .mktoForm .mktoFieldWrap {
+      width: 100% !important;
+    }
   </style>
 </head>
 <body>
@@ -459,20 +569,57 @@
     </header>
 
   <main>
-    <section>
+    <!--
+    =========================
+    HERO WITH PULL WITH IMAGE
+    =========================
+    -->
+    <section class="hero hero-pulled hero-with-image" style="background-image: radial-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0)), linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), url(${page-hero-image});">
       <div class="site-width">
-        <ul>
-          <li><a href="/blank-template.html">Blank Template</a></li>
-          <li><a href="/basic-offer.html">Basic Offer</a></li>
-          <li><a href="/basic-thank-you.html">Basic Thank You</a></li>
-          <li><a href="/event.html">Event</a></li>
-          <li><a href="/event-thank-you.html">Event Thank You</a></li>
-          <li><a href="/resource-offer.html">Resource Offer</a></li>
-          <li><a href="/resource-offer-image-headline.html">Resource Offer Image Headline</a></li>
-        </ul>
+        <img src="${page-hero-headline-image}" alt="${page-headline}">
       </div>
     </section>
+
+    <!--
+    =========================
+    TWO THIRD PULL TOP
+    =========================
+    -->
+    <section class="two-third-pull-top">
+      <div class="site-width">
+        <div class="two-third">
+          <div class="box white">
+            <img class="mktoImg" id="cover-image" mktoName="Cover Image">
+            <div class="mktoText" id="page-body-copy" mktoName="Page Body Copy">Insert Page Body Copy Here</div>
+          </div>
+          <div class="box">
+            <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
+            <form id="mktoForm_${form-id}"></form>
+            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id});</script>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
+  <!--
+    =========================
+    STANDARD FOOTER
+    =========================
+    -->
+    <footer>
+      <div class="site-width">
+        <div class="half">
+          <div>
+            <a href="https://octiv.com" class="site-logo"></a>
+          </div>
+          <div>
+            &copy; <span id="current-year">2017</span> Octiv, Inc. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
   <script>
     window.onload = getScripts;
 
@@ -486,6 +633,135 @@
       var currentYearContainer = document.querySelector('#current-year');
       currentYearContainer.innerText = now.getFullYear();
 
+      if (window.MktoForms2) {
+        /*
+        ==============================
+        REMOVE MARKETO CSS
+        ==============================
+        */
+        // var removeNodes = [];
+        // removeNodes.push(document.querySelector('#mktoForms2BaseStyle'));
+        // removeNodes.push(document.querySelector('#mktoForms2ThemeStyle'));
+        // if (removeNodes.length > 1) {
+        //     for (var i = 0; i < removeNodes.length; i++) {
+        //       removeNodes[i].remove();
+        //     }
+        // }
+
+        MktoForms2.whenReady(function(form) {
+          /*
+          ========================================
+          SHOW MARKETO ASTERIX FOR REQUIRED FIELDS
+          ========================================
+          */
+          var requiredField = document.querySelectorAll('.mktoRequiredField');
+          for (var i = 0; i < requiredField.length; i++) {
+            var asterix = requiredField[i].querySelector('.mktoAsterix');
+            asterix.style.width = 'initial';
+            asterix.style.marginRight = '0.5rem';
+            asterix.style.visibility = 'visible';
+          }
+
+          /*
+          ==============================
+          REMOVE MARKETO FORM INLINE CSS
+          ==============================
+          */
+          var removeCSSText = [];
+
+          /* get all forms on the page and push to array */
+          var forms = form.getFormElem();
+          for (var i = 0; i < forms.length; i++) {
+            removeCSSText.push(forms[i]);
+          }
+          for (var i = 0; i < removeCSSText.length; i++) {
+            removeCSSText[i].style.cssText = '';
+          }
+
+          /*
+          ========================================
+          REMOVE MARKETO WIDTHS
+          ========================================
+          */
+          for (var i = 0; i < forms.length; i++) {
+            var elemHasWidth = forms[i].querySelectorAll('.mktoHasWidth');
+            for (var i = 0; i < elemHasWidth.length; i++) {
+              elemHasWidth[i].style.width = '100%';
+            }
+          }
+
+          /*
+          ========================================
+          REMOVE MARKETO WIDTHS
+          ========================================
+          */
+          document.querySelector('.mktoButtonWrap').style.cssText = "";
+
+          /*
+          ==========================
+          REMOVE MARKETO STYLE BLOCK
+          ==========================
+          */
+          for (var i = 0; i < forms.length; i++) {
+            forms[i].querySelector('style').remove();
+          }
+
+          /*
+          ========================
+          REMOVE MARKETO OFFSETS
+          ========================
+          */
+          (function() {
+            var offsets = document.querySelectorAll('.mktoOffset');
+            for (var i = 0; i < offsets.length; i++) {
+              offsets[i].remove();
+            }
+          })();
+
+          /*
+          ========================
+          REMOVE MARKETO CLEARS
+          ========================
+          */
+          (function() {
+            var clears = document.querySelectorAll('.mktoClear');
+            for (var i = 0; i < clears.length; i++) {
+              clears[i].remove();
+            }
+          })();
+
+          window.addEventListener('resize', function() {
+            /*
+          ==============================
+          REMOVE MARKETO FORM INLINE CSS
+          ==============================
+          */
+          var removeCSSText = [];
+
+          /* get all forms on the page and push to array */
+          var forms = form.getFormElem();
+          for (var i = 0; i < forms.length; i++) {
+            removeCSSText.push(forms[i]);
+          }
+          for (var i = 0; i < removeCSSText.length; i++) {
+            removeCSSText[i].style.cssText = '';
+          }
+
+            /*
+          ========================================
+          REMOVE MARKETO WIDTHS
+          ========================================
+          */
+          for (var i = 0; i < forms.length; i++) {
+            var elemHasWidth = forms[i].querySelectorAll('.mktoHasWidth');
+            for (var i = 0; i < elemHasWidth.length; i++) {
+              elemHasWidth[i].style.width = '100%';
+            }
+          }
+
+          });
+        });
+      }
     }
   </script>
 </body>
