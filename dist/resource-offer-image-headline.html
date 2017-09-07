@@ -4,9 +4,12 @@
 
   <!-- Marekto Variables -->
     <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
+    <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
     <meta class="mktoString" id="page-hero-headline-image" mktoName="Page Hero Headline Image" default="//fillmurray.com/600/200">
     <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
     <meta class="mktoString" id="form-id" mktoName="Form ID Number">
+    <meta class="mktoString" id="success-headline" mktoName="Success Headline" default="Success Headline">
+    <meta class="mktoString" id="success-sub-headline" mktoName="Success Sub Headline" default="Success Sub Headline">
   <!-- End Marekto Variables -->
 
   <!-- Other Meta -->
@@ -547,6 +550,17 @@
     .mktoForm .mktoFieldWrap {
       width: 100% !important;
     }
+    .hero {
+      color: #000;
+    }
+    .hero h1,
+    .hero h5 {
+      text-shadow: none;
+    }
+    .hero h1 {
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
   </style>
 </head>
 <body>
@@ -576,14 +590,16 @@
     -->
     <section class="hero hero-pulled hero-with-image" style="background-image: radial-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0)), linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), url(${page-hero-image});">
       <div class="site-width">
+        <h1>${page-headline}</h1>
         <img src="${page-hero-headline-image}" alt="${page-headline}">
+        <h5>${page-sub-headline}</h5>
       </div>
     </section>
 
     <!--
-    =========================
-    TWO THIRD PULL TOP
-    =========================
+    =====================================
+    TWO THIRD PULL TOP THANK YOU MESSAGE
+    =====================================
     -->
     <section class="two-third-pull-top">
       <div class="site-width">
@@ -595,7 +611,16 @@
           <div class="box">
             <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
             <form id="mktoForm_${form-id}"></form>
-            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id});</script>
+            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id}, function(form) {
+              form.onSuccess(function(values, followUpUrl) {
+                // Get the form's jQuery element and hide it
+                form.getFormElem().hide();
+                var boxContainer = document.querySelector('.two-third-pull-top .box:last-child');
+                boxContainer.innerHTML = '<div class="centered font-bump"><h4>${success-headline}</h4><p>${success-sub-headline}</p></div>';
+                // Return false to prevent the submission handler from taking the lead to the follow up url
+                return false;
+              });
+            });</script>
           </div>
         </div>
       </div>

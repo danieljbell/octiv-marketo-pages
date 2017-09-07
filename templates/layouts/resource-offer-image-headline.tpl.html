@@ -4,9 +4,12 @@
 
   <!-- Marekto Variables -->
     <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
+    <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
     <meta class="mktoString" id="page-hero-headline-image" mktoName="Page Hero Headline Image" default="//fillmurray.com/600/200">
     <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
     <meta class="mktoString" id="form-id" mktoName="Form ID Number">
+    <meta class="mktoString" id="success-headline" mktoName="Success Headline" default="Success Headline">
+    <meta class="mktoString" id="success-sub-headline" mktoName="Success Sub Headline" default="Success Sub Headline">
   <!-- End Marekto Variables -->
 
   @@include('meta/_other.html')
@@ -42,13 +45,24 @@
     .mktoForm .mktoFieldWrap {
       width: 100% !important;
     }
+    .hero {
+      color: #000;
+    }
+    .hero h1,
+    .hero h5 {
+      text-shadow: none;
+    }
+    .hero h1 {
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
   </style>
 </head>
 <body>
   @@include('header/_standard-header.html')
   <main>
     @@include('hero/_hero-with-pull-with-image.html')
-    @@include('box/_two-third-pull-top.html')
+    @@include('box/_two-third-pull-top-thank-you.html')
   </main>
   @@include('footer/_standard-footer.html')
   <script>

@@ -1,0 +1,29 @@
+<!--
+    =====================================
+    TWO THIRD PULL TOP THANK YOU MESSAGE
+    =====================================
+    -->
+    <section class="two-third-pull-top">
+      <div class="site-width">
+        <div class="two-third">
+          <div class="box white">
+            <img class="mktoImg" id="cover-image" mktoName="Cover Image">
+            <div class="mktoText" id="page-body-copy" mktoName="Page Body Copy">Insert Page Body Copy Here</div>
+          </div>
+          <div class="box">
+            <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
+            <form id="mktoForm_${form-id}"></form>
+            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id}, function(form) {
+              form.onSuccess(function(values, followUpUrl) {
+                // Get the form's jQuery element and hide it
+                form.getFormElem().hide();
+                var boxContainer = document.querySelector('.two-third-pull-top .box:last-child');
+                boxContainer.innerHTML = '<div class="centered font-bump"><h4>${success-headline}</h4><p>${success-sub-headline}</p></div>';
+                // Return false to prevent the submission handler from taking the lead to the follow up url
+                return false;
+              });
+            });</script>
+          </div>
+        </div>
+      </div>
+    </section>
