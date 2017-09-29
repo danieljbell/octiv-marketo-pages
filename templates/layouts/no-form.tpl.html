@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Marekto Variables -->
+    <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
+    <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
+    <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
+  <!-- End Marekto Variables -->
+
+  @@include('meta/_other.html')
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" type="text/css" />
+
+  <title>${page-headline}</title>
+  <style>
+    @@include('style/_base.css')
+    @@include('style/_grid.css')
+    @@include('style/_buttons.css')
+    @@include('style/_forms.css')
+    @@include('style/_header.css')
+    @@include('style/_hero.css')
+    @@include('style/_box.css')
+    @@include('style/_footer.css')
+  </style>
+</head>
+<body>
+  @@include('header/_standard-header.html')
+  <main>
+    @@include('hero/_hero-with-pull.html')
+    @@include('box/_full-pull-top--editable.html')
+  </main>
+  @@include('footer/_standard-footer.html')
+</body>
+</html>
