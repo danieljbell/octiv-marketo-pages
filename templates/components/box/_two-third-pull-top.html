@@ -7,13 +7,29 @@
       <div class="site-width">
         <div class="two-third">
           <div class="box white">
-            <img class="mktoImg" id="cover-image" mktoName="Cover Image">
+            <h1>${page-headline}</h1>
             <div class="mktoText" id="page-body-copy" mktoName="Page Body Copy">Insert Page Body Copy Here</div>
           </div>
-          <div class="box">
+          <div class="box form-container">
             <script src="//app-sj20.marketo.com/js/forms2/js/forms2.min.js"></script>
             <form id="mktoForm_${form-id}"></form>
-            <script>MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id});</script>
+            <script>
+              MktoForms2.loadForm("//app-sj20.marketo.com", "625-MXY-689", ${form-id}, function(form) {
+                // Add an onSuccess handler
+                form.onSuccess(function(values, followUpUrl) {
+                    var vals = form.vals();
+                    var successMessage = document.querySelector('.success-message').innerHTML;
+                    var formContainer = document.querySelector('.two-third-pull-top .form-container');
+                    formContainer.classList.add('centered');
+                    formContainer.innerHTML = '<h2>Thanks ' + vals.FirstName + '!</h2>' + successMessage;
+                    // Get the form's jQuery element and hide it
+                    form.getFormElem().hide();
+                    // Return false to prevent the submission handler from taking the lead to the follow up url
+                    return false;
+                });
+              });
+            </script>
+            <div class="success-message" style="display: none;">${form-success-message}</div>
           </div>
         </div>
       </div>

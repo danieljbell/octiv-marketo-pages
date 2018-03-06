@@ -4,10 +4,9 @@
 
   <!-- Marekto Variables -->
     <meta class="mktoString" id="page-headline" mktoName="Page Headline" default="Page Headline">
-    <meta class="mktoString" id="page-sub-headline" mktoName="Page Sub Headline" default="Page Sub Headline">
-    <meta class="mktoString" id="page-hero-image" mktoName="Page Hero Image" default="//fillmurray.com/1920/445">
     <meta class="mktoString" id="form-id" mktoName="Form ID Number">
-    <meta class="mktoBoolean" id="cover-image-boolean" mktoName="Is There A Cover Image?" default="false" true_value="block" false_value="none" false_value_name="Hide" true_value_name="Show">
+    <meta class="mktoColor" id="partnerColor" mktoName="Partner Brand Color">
+    <meta class="mktoString" id="form-success-message" mktoName="Form Success Message" default="Form Success Message">
   <!-- End Marekto Variables -->
 
   <!-- Other Meta -->
@@ -580,8 +579,24 @@
       }
     }
 
-    .mktoGen.mktoImg {
-      float: right;
+    .mktoForm .mktoGutter {
+      height: 0.5em !important;
+    }
+    .mktoForm .mktoLabel {
+      width: 100% !important;
+    }
+    .mktoForm .mktoFormCol {
+      width: 100% !important;
+    }
+    .mktoForm .mktoHasWidth {
+      width: 100% !important;
+    }
+    .mktoForm .mktoAsterix {
+      float: left !important;
+      padding-left: 0 !important; 
+    }
+    .mktoForm .mktoFieldWrap {
+      width: 100% !important;
     }
     #cover-image {
       display: ${cover-image-boolean};
@@ -612,13 +627,22 @@
   <main>
     <!--
     =========================
-    HERO WITH PULL
+    HERO FOR PARTNERS
     =========================
     -->
-    <section class="hero hero-pulled" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${page-hero-image});">
+    <section class="hero hero-pulled hero-partner" style="background-image: url(https://octiv.com/wp-content/themes/octiv2017/dist/img/octiv-pattern.svg), linear-gradient(${partnerColor}, ${partnerColor}); background-size: 300px;">
       <div class="site-width">
-        <h1>${page-headline}</h1>
-        <h5>${page-sub-headline}</h5>
+        <div class="hero-partner-container">
+          <div class="hero-partner--logo">
+            <img src="http://lp.octiv.com/rs/625-MXY-689/images/Octiv-Logo-Color.svg" alt="">
+          </div>
+          <div class="hero-partner--plus">
+            +
+          </div>
+          <div class="hero-partner--logo">
+            <img src="http://lp.octiv.com/rs/625-MXY-689/images/Octiv-Logo-Color.svg" class="mktoImg" id="partnerLogo" mktoName="Partner Logo">
+          </div>
+        </div>
       </div>
     </section>
 

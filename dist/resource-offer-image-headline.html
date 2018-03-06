@@ -464,12 +464,63 @@
     .hero-cta h5 {
       margin-bottom: 2rem;
     }
+    .hero-partner-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .hero-partner-container > div {
+      margin-bottom: 1.5rem;
+    }
+    .hero-partner-container > div:last-child {
+      margin-bottom: 0;
+    }
+    .hero-partner--logo {
+      padding: 1rem;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-partner--logo img {
+      width: 100%;
+      max-width: 185px;
+      max-height: 100px;
+    }
+    .hero-partner--plus {
+      background-color: #fff;
+      box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+      min-width: 30px;
+      min-height: 30px;
+      max-width: 30px;
+      max-height: 30px;
+      color: #000;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
     @media screen and (min-width: 767px) {
       .hero {
         padding: 6rem 0;
       }
       .hero-pulled {
         padding: 6rem 0 9rem;
+      }
+      .hero-partner-container {
+        flex-direction: row;
+      }
+      .hero-partner-container > div {
+        margin-right: 1.5rem;
+        margin-bottom: 0;
+      }
+      .hero-partner-container > div:last-child {
+        margin-right: 0;
       }
     }
 
